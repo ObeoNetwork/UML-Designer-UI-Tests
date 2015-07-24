@@ -1,0 +1,39 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_1qb3AFVxEeWxCfZ4_QRXhA,_o3HjQFV2EeWxCfZ4_QRXhA
+Element-Name: DisableInterfaceLayer
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _1c09AFVqEeWxCfZ4_QRXhA
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 9/15/15 11:06 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+in a composite structured diagram, test enable disable interface layer.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// disable interface layer
+with [get-editor "Component1 Composite Structure Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Component1 Composite Structure Diagram"] {
+             mouse-move 761 92 button1 -height 355 -width 848
+            mouse-press 761 92 button1 -height 355 -width 848
+            mouse-release 761 92 button1 524288 -height 355 -width 848
+        }
+    }
+    get-button Layers | click -arrow
+}
+get-menu Interfaces | click
+
+// Check diagram
+get-editor "Component1 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "Component1 Composite Structure Diagram" | get-property "getConnections().size()" | equals 4 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
