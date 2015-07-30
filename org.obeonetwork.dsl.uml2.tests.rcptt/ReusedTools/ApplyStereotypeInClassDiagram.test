@@ -6,9 +6,10 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _KJlrINFBEeSZY9TTmtin1Q
-Runtime-Version: 2.0.0.201506120617
-Save-Time: 7/27/15 4:02 PM
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 7/30/15 5:22 PM
 Testcase-Type: ecl
+Verifications: _fskbYDbOEeWwPNLPwYvdIg
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -65,14 +66,15 @@ get-editor Entities | get-diagram -index 1 | get-edit-part -name Entities | get-
 get-editor Entities | get-diagram -index 1 | get-edit-part -name Entities | get-edit-part -name "«EClass»\r\n"
     + "Agency" | get-property "element.target.name" | equals Agency | verify-true
     
-with [get-editor Entities | get-diagram -index 1 | get-edit-part -name Entities | get-edit-part -name "«EClass»\r\n"
-    + "Agency"] {
-    get-property "element.semanticElements.EClass[1].xmlName" | equals "" | verify-true
-    get-property "element.semanticElements.EClass[1].annotations" | equals "[]" | verify-true
-    get-property "element.semanticElements.EClass[1].instanceClassName" | equals "" | verify-true
-    //get-property "element.semanticElements.EClass[1].base_Interface" | equals null | verify-true
-    get-property "element.semanticElements.EClass[1].className" | equals "" | verify-true
-    //get-property "element.semanticElements.EClass[1].base_DataType" | equals null | verify-true
-    //get-property "element.semanticElements.EClass[1].base_Association" | equals null | verify-true
+with [get-editor Entities | get-diagram -index 1 | get-edit-part -name Entities | get-edit-part -name EClass] {
+    with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        get-edit-part -name "xmlName=null" | get-property "getEditText()" | equals "xmlName=null" | verify-true
+        get-edit-part -name "annotations=[]" | get-property "getEditText()" | equals "annotations=[]" | verify-true
+        get-edit-part -name "instanceClassName=null" | get-property "getEditText()" | equals "instanceClassName=null" 
+            | verify-true
+        get-edit-part -name "className=null" | get-property "getEditText()" | equals "className=null" | verify-true
+    }
+    get-edit-part -className DNodeListNameEditPart | get-property "getFigure().getText()" | equals EClass | verify-true
 }
+get-editor Entities | get-diagram -index 1 | get-edit-part -name Entities | mouse-move 310 148 -height 698 -width 953
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
