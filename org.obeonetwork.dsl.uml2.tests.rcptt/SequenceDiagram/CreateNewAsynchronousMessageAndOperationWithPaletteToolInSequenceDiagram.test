@@ -6,9 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _Kw84QOG3EeS3L8OLI5YuWw
-Runtime-Version: 2.0.0.201506120617
-Save-Time: 7/27/15 11:36 AM
-Tags: skipExecution
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 7/31/15 11:51 AM
 Testcase-Type: ecl
 Verifications: _h67PEOG4EeS3L8OLI5YuWw
 
@@ -61,7 +60,7 @@ with [get-editor "Test Sequence Diagram"] {
 // Check Arrow from Class1 to Class2 
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
     get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part -name "Operation_1" 
-        | get-target-connection 0 | get-edit-part -className "" | get-property "getFigure().getText()" 
+        | get-target-connection 0 | get-edit-part -className SequenceMessageNameEditPart | get-property "getFigure().getText()" 
         | equals "Operation_1" | verify-true
 }
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" 
@@ -106,7 +105,7 @@ with [get-editor "Test Sequence Diagram"] {
 // Check arrow label
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
     get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part -name "Message_1" 
-        | get-target-connection 0 | get-edit-part -className "" | get-property "getFigure().getText()" 
+        | get-target-connection 0 | get-edit-part -className SequenceMessageNameEditPart | get-property "getFigure().getText()" 
         | equals "Message_1" | verify-true
 }
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" 
