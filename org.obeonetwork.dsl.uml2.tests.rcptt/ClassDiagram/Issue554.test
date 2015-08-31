@@ -7,8 +7,7 @@ Element-Version: 3.0
 External-Reference: https://github.com/ObeoNetwork/UML-Designer/issues/554
 Id: _RFH8If7vEeS7OLGvKiovtw
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 6/10/15 5:42 PM
-Tags: skipExecution
+Save-Time: 8/31/15 11:55 AM
 Testcase-Type: ecl
 Verifications: _5paYQP7xEeS7OLGvKiovtw
 
@@ -29,29 +28,37 @@ Result:
 Content-Type: text/ecl
 Entry-Name: .content
 
-// Create association class between two clases in a package
+// Create association class between two classes in a package
 with [get-editor "test Class Diagram"] {
-    with [get-palette | get-palette-entry Associations] {
-        mouse-move 5 11 button1 -height 23 -width 125
-        mouse-press 5 11 button1 -height 23 -width 125
-        mouse-release 5 11 button1 524288 -height 23 -width 125
+    with [get-palette] {
+        with [get-palette-entry Association] {
+            mouse-move 100 12 button1 -height 23 -width 140
+            mouse-press 100 12 button1 -height 23 -width 140
+            mouse-release 100 12 button1 524288 -height 23 -width 140
+        }
+        with [get-palette-entry Associations] {
+            mouse-move 5 6 button1 -height 23 -width 140
+            mouse-press 5 6 button1 -height 23 -width 140
+            mouse-release 5 6 button1 524288 -height 23 -width 140
+        }
+        with [get-palette-entry "Association Class"] {
+            mouse-move 25 8 button1 -height 23 -width 140
+            mouse-press 25 8 button1 -height 23 -width 140
+            mouse-release 25 8 button1 524288 -height 23 -width 140
+        }
     }
-    with [get-palette | get-palette-entry "Association Class"] {
-        mouse-move 37 15 button1 -height 37 -width 125
-        mouse-press 37 15 button1 -height 37 -width 125
-        mouse-release 37 15 button1 524288 -height 37 -width 125
-    }
-    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part -name Package1] {
-        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+       with [get-edit-part -name Package1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
             with [get-edit-part -name Class1 | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
-                mouse-move 1 1 button1 -height 71 -width 116
-                mouse-press 1 1 button1 -height 71 -width 116
-                mouse-release 1 1 button1 524288 -height 71 -width 116
+                mouse-move 76 26 button1 -height 71 -width 116
+                mouse-press 76 26 button1 -height 71 -width 116
+                mouse-release 76 26 button1 524288 -height 71 -width 116
             }
             with [get-edit-part -name Class2 | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
-                mouse-move 1 1 button1 -height 71 -width 116
-                mouse-press 1 1 button1 -height 71 -width 116
-                mouse-release 1 1 button1 524288 -height 71 -width 116
+                mouse-move 15 31 button1 -height 71 -width 116
+                mouse-press 15 31 button1 -height 71 -width 116
+                mouse-release 15 31 button1 524288 -height 71 -width 116
             }
         }
     }
