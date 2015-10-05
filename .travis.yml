@@ -1,68 +1,77 @@
 language: java
-
 jdk: oraclejdk7
-
 env:
- global: 
- - DISPLAY=:99.0
- - RUNNER=../obeo-umldesigner-nightly.s3.amazonaws.com/releng/rcptt.runner-2.0.0.zip
- - if [[ "$TRAVIS_TAG" != "" ]]; then AUT=../obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip; else AUT=../obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;fi
- - TESTS_RESULTS_DIR=${TRAVIS_BUILD_DIR}/nightly/${TRAVIS_BRANCH}/tests-results
- - if [[ "$TRAVIS_TAG" != "" ]]; then ARTIFACTS_S3_BUCKET="obeo-umldesigner-nightly"; else ARTIFACTS_S3_BUCKET="obeo-umldesigner-releases";fi
- - ARTIFACTS_AWS_REGION="eu-west-1"
- - secure: "bw6eOB+5pTSuzQMqVVAsXtrLV2l1aoKsyZiOuRCD73dxxh9w8tJPTEJWi1tHECH/bYDTHQ67xSTmEGF2kirgUP4Jqk3eJwTr5dLZUDhw72yJRHuU3e8zPhthgbB+7BnxNYKPmepmMVLBslQ6UwmQrjUe0TCOfuxUGvYIwx9mCMNJ45D0n8s9U/IE1DFw8UENxGA7QYBpFJ+gmi3j1Z+m7zuJtBqJ+434YYa7AatcrQhbPWQ9aBAmCKs/B1ikzNVlhUfKpE1CPTeWq3SqeN7Mhde8Q9E7IL/5HyTqZEz4NUB1Yrfwyt7nSN/qFqiXIbJQkmw0ZomtO9W92qF6RMhFdeU0wHsOUmxsA1OckrEBMYjr9yBoVv09RZqCACB+CHrMMf9yJcxfdus7UrwJB9sPrpFvaojyqGgiPtHxXO1Z0tLFlFETdI5IVCxvcGYe9F/mTD9V6Vm/7hUxNl2W6+GZG4b7ZH5mYZw7ev18+j3S1zyg4B8oQepSZ/St0V74e4b2TlBnD/ypKlfA2WhcZtrumo9q634PtnHzBYSjcICcJENEfxUFKexkbcRk02IKEdCbQTPHR+utCB7Hjr7wIbqPL+30hS+CKwW6KPD20YFERLIs/e16MQAR3R3soaq6bjo02yjQeHHIkz9hcY15K2dWK4hRjzyWQhyOCCCM0zqr9UM="
- - secure: "ODaIrQdc6pHfxxRSLQFBiTuzaaJQ1gm9CVrCxpVzuY9ZR/DaCEufhcvZSAM/ATB9FM1jIMKjZmEyrcc4ybgXHhPzuwYMwE+JoHiBcFYrWhoGyKKfGIHM/c2tIaEtpblfoa0MuulUg1sA5RaL9CsiRcBIkfa7gRzWmPK1FLWCKixpGsRx2zM/ICpvh5ZudItlomMm8BSvjG2vVnJ44ugNr8Rd4o9a9X/8fMfIQaUA8co7GlolWQomzZ7kAfiA/U9tSWOOr3pTN1lZ9lpjOEl1DS1VcJf0TmBmy6kle4XaWpJ7VcwDgSKTG/3LFBUfW8wmCyUX9E78E13EL74GPVVliz9KlPLzYhKEoNGNhN/d99WTcXFi9D9jeVG6jK/PIWnl3tDC8Spi+nBo9zlEPXgDwH16xJdbSYvGMeYnxU0B9l4n20rGggcgTgnNoLs2W1Ej2f7MGpIkRXxjzKVTduPMJ+VtlbxfEi/BxcEQUoG0XPwIvwP2+h336AAB3XyL9Uz5lS1O7lQQGERTtNH7jCgVYhPJwzAr7jmCHN1kKsdSMRJzIv6JQ49BaJ7KpG/bpnxzKCxLHoD1nVjXoinYeCuTLBDNf0ae09CxUNA21UpPfp6zoV1qHjlwkTpFF3c/m1vPhtOkVhrckgOoi2rdIXoP+1OrHWjph9zRIso1uL8jtzY="
-
- matrix:
- - TEST_SUITE=ActivityDiagram
- - TEST_SUITE=ClassDiagram
- - TEST_SUITE=ComponentDiagram
- - TEST_SUITE=CompositeStructureDiagram
- - TEST_SUITE=Dashboard
- - TEST_SUITE=DeploymentDiagram
- - TEST_SUITE=DocumentationTable
- - TEST_SUITE=Examples
- - TEST_SUITE=NewProject
- - TEST_SUITE=PackageContainmentDiagram
- - TEST_SUITE=PackageHierarchy
- - TEST_SUITE=ProfileDiagram
- - TEST_SUITE=ReusedTools
- - TEST_SUITE=SequenceDiagram
- - TEST_SUITE=StateMachineDiagram
- - TEST_SUITE=UseCaseDiagram
-
-before_install:
-- rvm install 2.2.3
-
+  global:
+  - DISPLAY=:99.0
+  - RUNNER=../obeo-umldesigner-nightly.s3.amazonaws.com/releng/rcptt.runner-2.0.1.zip
+  - if [[ "$TRAVIS_TAG" == "" ]]; then AUT=../obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;
+    else AUT=../obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;fi
+  - TESTS_RESULTS_DIR=${TRAVIS_BUILD_DIR}/nightly/${TRAVIS_BRANCH}/tests-results
+  matrix:
+  - TEST_SUITE=ActivityDiagram
+  - TEST_SUITE=ClassDiagram
+  - TEST_SUITE=ComponentDiagram
+  - TEST_SUITE=CompositeStructureDiagram
+  - TEST_SUITE=Dashboard
+  - TEST_SUITE=DeploymentDiagram
+  - TEST_SUITE=DocumentationTable
+  - TEST_SUITE=Examples
+  - TEST_SUITE=NewProject
+  - TEST_SUITE=PackageContainmentDiagram
+  - TEST_SUITE=PackageHierarchy
+  - TEST_SUITE=ProfileDiagram
+  - TEST_SUITE=ReusedTools
+  - TEST_SUITE=SequenceDiagram
+  - TEST_SUITE=StateMachineDiagram
+  - TEST_SUITE=UseCaseDiagram
 install: true
-sudo : false
+sudo: false
 cache:
- directories:
- - $HOME/.m2
+  directories:
+  - $HOME/.m2
 addons:
   apt:
     packages:
-     - metacity
-
+    - metacity
 before_script:
- - "gem install travis-artifacts"
  - export SWT_GTK3=0
- - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1440x900x16"
+ - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1440x900x16
  - sh -e /etc/init.d/xvfb start
- - sleep 10 # give xvfb some time to start
+ - sleep 10
  - metacity --sm-disable --replace &
- - sleep 10 # give metacity some time to start
-# Get RCPTT runner
-# Runner is saved on S3 due to performance issues from the eclipse server
- - wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/releng/rcptt.runner-2.0.0.zip
-# Download AUT
- - if [[ "$TRAVIS_TAG" != "" ]]; then wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip; else wget -mN http://obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;fi
-
+ - sleep 10
+ - wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/releng/rcptt.runner-2.0.1.zip
+ - echo $TRAVIS_TAG
+ - if [[ "$TRAVIS_TAG" == "" ]]; then wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;
+  else wget -mN http://obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;fi
 script:
  - export
-# Launch tests
  - mvn clean test -f org.obeonetwork.dsl.uml2.tests.rcptt/pom.xml -Daut=$AUT -Drcpttrunner=$RUNNER -Dsuite=$TEST_SUITE
-
-after_script:
-  - "travis-artifacts upload --path org.obeonetwork.dsl.uml2.tests.rcptt/target/results --target-path ${TRAVIS_BRANCH}/test-results/$TRAVIS_JOB_NUMBER"
-  - if [[ "$TRAVIS_TAG" != "" ]]; then "travis-artifacts upload --path org.obeonetwork.dsl.uml2.tests.rcptt/target/results --target-path release/${TRAVIS_TAG}/test-results/$TRAVIS_JOB_NUMBER"; fi
+deploy:
+ - provider: s3
+   access_key_id: AKIAJJVZATSVUD3VGHXA
+   secret_access_key:
+     secure: AmWdqd6v5iZymgS7SIwMmSWdcRqTPazWH01A5F2dmYmeRYgB+w+InC7QGVBO86nSvwiXn6lH7XbBIYGDSpetM2dQT4/0ErBuhkkNKylQc+f595lKIz7K2XCfhu/Q5tlj5UQsG86y+Kaz7EPk73q8zTfjubjCLu0bdeQYOa8TQoayRKGPl7rOKqb0EVZfqX0LnS3Dr9QVEnTgHkHKau0qSpoKVNUsy2Yoc+uviogb3Efo3Xq2j6Sp+49mmcA1OJFvw30dqJSdJU40B0Kl8wasHRFBK7o8a1PxFxUylmHZOwfzFchikz1bJ97up7/Q5Q12/lid7sgLx4KF7xxgGnhj8VaZ4HbQVy1lupT5iDcekIIuZFfZQgRR/P5Jl1pJVR9IIi4PAznNp8662x9YTNuDxdse8QfA9wmIZmMKtMLXQfhLCt4MN9WggolnFbvLof4cpcIVffWP8mmQfjB+vYBpUhAM957ek7d+45fGwqbZ9tGygeuwSZgJ1UF4oDH7ViilM7EZ9BG2In7NjAM4zjBtOOMOSpUNHBma7Hiep4HRV7pYWm/xmji/SihRkkTBVhkpuL6P5PuERuRG3HS1TBT51XwnwluGG0lmwPrE9wZRahKnUxwNwfds6T6Mpq2gXyHK6D2efZqpdfR6gybb0v+xyr/QrIqnMFoWr9OSzt64m4w=
+   bucket: obeo-umldesigner-nightly
+   local-dir: "${TRAVIS_BUILD_DIR}/org.obeonetwork.dsl.uml2.tests.rcptt/target/results"
+   acl: public_read
+   skip_cleanup: true
+   region: eu-west-1
+   upload-dir: "${TRAVIS_BRANCH}/test-results/${TRAVIS_JOB_NUMBER}"
+   on:
+     repo: ObeoNetwork/UML-Designer-UI-Tests
+     branch: master
+ - provider: s3
+   access_key_id: AKIAJJVZATSVUD3VGHXA
+   secret_access_key:
+    secure: AmWdqd6v5iZymgS7SIwMmSWdcRqTPazWH01A5F2dmYmeRYgB+w+InC7QGVBO86nSvwiXn6lH7XbBIYGDSpetM2dQT4/0ErBuhkkNKylQc+f595lKIz7K2XCfhu/Q5tlj5UQsG86y+Kaz7EPk73q8zTfjubjCLu0bdeQYOa8TQoayRKGPl7rOKqb0EVZfqX0LnS3Dr9QVEnTgHkHKau0qSpoKVNUsy2Yoc+uviogb3Efo3Xq2j6Sp+49mmcA1OJFvw30dqJSdJU40B0Kl8wasHRFBK7o8a1PxFxUylmHZOwfzFchikz1bJ97up7/Q5Q12/lid7sgLx4KF7xxgGnhj8VaZ4HbQVy1lupT5iDcekIIuZFfZQgRR/P5Jl1pJVR9IIi4PAznNp8662x9YTNuDxdse8QfA9wmIZmMKtMLXQfhLCt4MN9WggolnFbvLof4cpcIVffWP8mmQfjB+vYBpUhAM957ek7d+45fGwqbZ9tGygeuwSZgJ1UF4oDH7ViilM7EZ9BG2In7NjAM4zjBtOOMOSpUNHBma7Hiep4HRV7pYWm/xmji/SihRkkTBVhkpuL6P5PuERuRG3HS1TBT51XwnwluGG0lmwPrE9wZRahKnUxwNwfds6T6Mpq2gXyHK6D2efZqpdfR6gybb0v+xyr/QrIqnMFoWr9OSzt64m4w=
+   bucket: obeo-umldesigner-releases
+   local-dir: "${TRAVIS_BUILD_DIR}/org.obeonetwork.dsl.uml2.tests.rcptt/target/results"
+   acl: public_read
+   skip_cleanup: true
+   region: eu-west-1
+   upload-dir: "${TRAVIS_TAG}/test-results/${TRAVIS_JOB_NUMBER}"
+   on:
+     tags: true
+     all_branches: true
+     repo: ObeoNetwork/UML-Designer-UI-Tests
