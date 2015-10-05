@@ -31,6 +31,9 @@ env:
  - TEST_SUITE=StateMachineDiagram
  - TEST_SUITE=UseCaseDiagram
 
+before_install:
+- rvm install 2.2.3
+
 install: true
 sudo : false
 cache:
