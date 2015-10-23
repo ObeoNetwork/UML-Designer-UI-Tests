@@ -1,0 +1,206 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ContextForReconnectBinding
+Element-Type: context
+Element-Version: 2.0
+Id: _K7PTQA6GEeW91PUwHXJ5rQ
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 6/9/15 11:23 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+//Create new Class: Class1
+with [get-editor "test Class Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry Class] {
+            mouse-move 63 11 button1 -height 23 -width 135
+            mouse-press 63 11 button1 -height 23 -width 135
+            mouse-release 63 11 button1 524288 -height 23 -width 135
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 166 143 button1 -height 338 -width 712
+        mouse-press 166 143 button1 -height 338 -width 712
+        mouse-release 166 143 button1 524288 -height 338 -width 712
+    }
+}
+
+//Create new Class: Class2
+with [get-editor "test Class Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry Class] {
+            mouse-move 63 11 button1 -height 23 -width 135
+            mouse-press 63 11 button1 -height 23 -width 135
+            mouse-release 63 11 button1 524288 -height 23 -width 135
+        }
+    }
+with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+       mouse-move 167 308 button1 -height 338 -width 712
+        mouse-press 167 308 button1 -height 338 -width 712
+        mouse-release 167 308 button1 524288 -height 338 -width 712
+    }
+}
+//Create new Class: Class3
+with [get-editor "test Class Diagram"] {
+   with [get-palette] {
+        with [get-palette-entry Class] {
+            mouse-move 45 7 button1 -height 23 -width 135
+            mouse-press 45 7 button1 -height 23 -width 135
+            mouse-release 45 7 button1 524288 -height 23 -width 135
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 400 143 button1 -height 562 -width 1153
+        mouse-press 400 143 button1 -height 562 -width 1153
+        mouse-release 400 143 button1 524288 -height 562 -width 1153
+    }
+}
+
+// Rename Class1 to Class1<T> with direct edit
+with [get-editor "test Class Diagram"] {
+    maximize
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "test Class Diagram" | get-edit-part -name Class1] {
+            mouse-move 97 19 button1 -height 100 -width 120
+            mouse-press 97 19 button1 -height 100 -width 120
+            mouse-release 97 19 button1 524288 -height 100 -width 120
+        }
+        key-type F2
+        get-edit-part -name "test Class Diagram" | get-edit-part -name Class1 | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        key-type Right
+        set-text "Class1 <T>"
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+        get-edit-part -name "test Class Diagram" | mouse-move 1152 511 -height 562 -width 1153
+    }
+}
+
+// Create new binding from Class2 to Class1<T>
+with [get-editor "test Class Diagram" | get-palette | get-palette-entry Binding] {
+    mouse-move 53 9 button1 -height 23 -width 135
+    mouse-press 53 9 button1 -height 23 -width 135
+    mouse-release 53 9 button1 524288 -height 23 -width 135
+}
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    mouse-move 285 352 -height 562 -width 1153
+    with [get-edit-part -name Class2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 48 29 button1 -height 71 -width 116
+        mouse-press 48 29 button1 -height 71 -width 116
+        mouse-release 48 29 button1 524288 -height 71 -width 116
+    }
+    mouse-move 197 247 -height 562 -width 1153
+    with [get-edit-part -name "Class1 <T>" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 34 11 button1 -height 71 -width 116
+        mouse-press 34 11 button1 -height 71 -width 116
+        mouse-release 34 11 button1 524288 -height 71 -width 116
+        
+    }
+}
+//Create an interface
+with [get-editor "test Class Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry Interface] {
+            mouse-move 54 11 button1 -height 23 -width 125
+            mouse-press 54 11 button1 -height 23 -width 125
+            mouse-release 54 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 502 147 button1 -height 848 -width 951
+        mouse-press 502 147 button1 -height 848 -width 951
+        mouse-release 502 147 button1 524288 -height 848 -width 951
+    }
+    //Create an enumeration
+    get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 944 185 -height 848 -width 951
+    with [get-palette | get-palette-entry Enumeration] {
+        mouse-move 31 7 button1 -height 23 -width 125
+        mouse-press 31 7 button1 -height 23 -width 125
+        mouse-release 31 7 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 642 147 button1 -height 848 -width 951
+        mouse-press 642 147 button1 -height 848 -width 951
+        mouse-release 642 147 button1 524288 -height 848 -width 951
+    }
+    // Create a Primitivetype
+    with [get-palette] {
+        with [get-palette-entry DataTypes] {
+            mouse-move 5 11 button1 -height 23 -width 125
+            mouse-press 5 11 button1 -height 23 -width 125
+            mouse-release 5 11 button1 524288 -height 23 -width 125
+        }
+        with [get-palette-entry PrimitiveType] {
+            mouse-move 44 9 button1 -height 23 -width 125
+            mouse-press 44 9 button1 -height 23 -width 125
+            mouse-release 44 9 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 643 307 button1 -height 848 -width 951
+        mouse-press 643 307 button1 -height 848 -width 951
+        mouse-release 643 307 button1 524288 -height 848 -width 951
+    }
+    // Create a Datatype
+    with [get-palette] {
+        with [get-palette-entry DataTypes] {
+            mouse-move 10 6 button1 -height 23 -width 125
+            mouse-press 10 6 button1 -height 23 -width 125
+            mouse-release 10 6 button1 524288 -height 23 -width 125
+        }
+        get-palette-entry Enumeration | mouse-move 30 21 -height 23 -width 125
+        with [get-palette-entry DataType] {
+            mouse-move 33 14 button1 -height 23 -width 125
+            mouse-press 33 14 button1 -height 23 -width 125
+            mouse-release 33 14 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 638 460 button1 -height 848 -width 951
+        mouse-press 638 460 button1 -height 848 -width 951
+        mouse-release 638 460 button1 524288 -height 848 -width 951
+    }
+    // Create a Package
+    with [get-palette] {
+        with [get-palette-entry Package] {
+            mouse-move 51 3 button1 -height 23 -width 125
+            mouse-press 51 3 button1 -height 23 -width 125
+            mouse-release 51 3 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 506 464 button1 -height 848 -width 951
+        mouse-press 506 464 button1 -height 848 -width 951
+        mouse-release 506 464 button1 524288 -height 848 -width 951
+    }
+}
+
+//Check context
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    get-edit-part -name Class2 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name "Class1 <T>" | get-edit-part -className DNodeListNameEditPart | get-property visible 
+        | equals true | verify-true
+    get-edit-part -name Class3 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name Interface1 | get-edit-part -className DNodeListNameEditPart | get-property visible 
+        | equals true | verify-true
+    get-edit-part -name Enumeration1 | get-edit-part -className DNodeListNameEditPart | get-property visible 
+        | equals true | verify-true
+    get-edit-part -name PrimitiveType1 | get-edit-part -className DNodeListNameEditPart | get-property visible 
+        | equals true | verify-true
+    get-edit-part -name DataType1 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name Package1 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-figure "1/0" | get-property "isVisible()" | equals true | verify-true
+    get-edit-part -name "Class1 <T>" | get-target-connection 0 | get-property visible | equals true | verify-true
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
