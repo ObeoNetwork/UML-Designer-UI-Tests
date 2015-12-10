@@ -1,0 +1,134 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ContextForFix363
+Element-Type: context
+Element-Version: 2.0
+Id: _uTIVAJ8tEeW-L9SgR7HbTA
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 12/10/15 12:06 PM
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Add a class with proerty, typed property, operation
+add a component with port, extension end and  a property
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+with [get-editor "test Class Diagram"] {
+	// Add a class
+    with [get-palette] {
+        with [get-palette-entry Class] {
+            mouse-move 42 9 button1 -height 23 -width 500
+            mouse-press 42 9 button1 -height 23 -width 500
+            mouse-release 42 9 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 53 154 button1 -height 433 -width 535
+        mouse-press 53 154 button1 -height 433 -width 535
+        mouse-release 53 154 button1 524288 -height 433 -width 535
+    }
+    // Add a property
+    with [get-palette] {
+        with [get-palette-entry Property] {
+            mouse-move 67 11 button1 -height 23 -width 500
+            mouse-press 67 11 button1 -height 23 -width 500
+            mouse-release 67 11 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part -name Class1 | get-edit-part 
+        -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 39 19 button1 -height 71 -width 116
+        mouse-press 39 19 button1 -height 71 -width 116
+        mouse-release 39 19 button1 524288 -height 71 -width 116
+    }
+    // Add operation
+    with [get-palette] {
+        with [get-palette-entry Operation] {
+            mouse-move 63 9 button1 -height 23 -width 500
+            mouse-press 63 9 button1 -height 23 -width 500
+            mouse-release 63 9 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 184 239 -height 433 -width 535
+        with [get-edit-part -name Class1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 57 56 button1 -height 71 -width 116
+            mouse-press 57 56 button1 -height 71 -width 116
+            mouse-release 57 56 button1 524288 -height 71 -width 116
+        }
+    }
+    // Add typed property
+   	with [get-palette] {
+        with [get-palette-entry Properties] {
+            mouse-move 13 18 button1 -height 23 -width 500
+            mouse-press 13 18 button1 -height 23 -width 500
+            mouse-release 13 18 button1 524288 -height 23 -width 500
+        }
+        get-palette-entry Property | mouse-move 28 22 -height 23 -width 482
+        with [get-palette-entry "Typed Property"] {
+            mouse-move 43 9 button1 -height 23 -width 500
+            mouse-press 43 9 button1 -height 23 -width 500
+            mouse-release 43 9 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part -name Class1 | get-edit-part 
+        -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 53 38 button1 -height 71 -width 116
+        mouse-press 53 38 button1 -height 71 -width 116
+        mouse-release 53 38 button1 524288 -height 71 -width 116
+    }
+}
+with [get-window "New typed property selection"] {
+    get-tree | select "<Model> NewModel/<Class> Class1"
+    get-button OK | click
+}
+// Create component with attributs port, property, extension end
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
+    | get-menu "New Child/Owned Type/Component" | click
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+    | get-menu "New Child/Owned Port/Port" | click
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+    | get-menu "New Child/Owned Attribute/Extension End" | click
+get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 3 253 
+    -height 433 -width 535
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+    | get-menu "New Child/Owned Attribute/Property" | click
+get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 0 264 
+    -height 433 -width 535
+// Drag component into diagram
+with [get-view "Model Explorer" | get-tree] {
+    select "test/model.uml/<Model> NewModel/<Component> Component1"
+    get-item "test/model.uml/<Model> NewModel/<Component> Component1" | drag-start "-4" 9
+}
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    drag-enter 16 90 -detail move
+    drag-over 370 98 -detail copy
+    drag-exit
+    drag-accept 370 98 -detail copy
+}
+get-view "Model Explorer" | get-tree | drag-set-data
+get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | drop 370 98 
+    -detail copy
+get-view "Model Explorer" | get-tree | drag-end -detail copy
+
+
+// Check context
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    with [get-edit-part -name Class1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        get-edit-part -name "property1 :  [0..1]"
+        get-edit-part -name "property2 : Class1 [0..1]"
+        get-edit-part -name "Operation_1()"
+    }
+    with [get-edit-part -name Component1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        get-edit-part -name "port1 :  [1]"
+        get-edit-part -name "property1 :  [0..1]"
+        get-edit-part -name "property1 :  [1]"
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
