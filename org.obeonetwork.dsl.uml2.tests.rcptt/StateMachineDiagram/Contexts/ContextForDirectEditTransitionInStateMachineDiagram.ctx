@@ -1,0 +1,91 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ContextForDirectEditTransitionInStateMachineDiagram
+Element-Type: context
+Element-Version: 2.0
+Id: _e4n9gJ_rEeW6xoTb4HKHNA
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 12/11/15 10:43 AM
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+In a state machine diagram create 2 states and a transition
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+with [get-editor "NewModel State Machine Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry State] {
+            mouse-move 44 3 button1 -height 23 -width 500
+            mouse-press 44 3 button1 -height 23 -width 500
+            mouse-release 44 3 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram"] {
+        with [get-edit-part -name NewModel | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name Region1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 46 78 button1 -height 476 -width 481
+                mouse-press 46 78 button1 -height 476 -width 481
+                mouse-release 46 78 button1 524288 -height 476 -width 481
+            }
+        }
+    }
+     with [get-palette] {
+         with [get-palette-entry State] {
+            mouse-move 46 18 button1 -height 23 -width 500
+            mouse-press 46 18 button1 -height 23 -width 500
+            mouse-release 46 18 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 344 76 button1 -height 476 -width 481
+        mouse-press 344 76 button1 -height 476 -width 481
+        mouse-release 344 76 button1 524288 -height 476 -width 481
+    }
+}
+with [get-editor "NewModel State Machine Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry Transition] {
+            mouse-move 73 8 button1 -height 23 -width 500
+            mouse-press 73 8 button1 -height 23 -width 500
+            mouse-release 73 8 button1 524288 -height 23 -width 500
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name Region1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            with [get-edit-part -name State1] {
+                mouse-move 11 21 button1 -height 40 -width 40
+                mouse-press 11 21 button1 -height 40 -width 40
+                mouse-release 11 21 button1 524288 -height 40 -width 40
+            }
+            mouse-move 339 106 -height 476 -width 481
+            with [get-edit-part -name State2 | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+                mouse-move 29 8 button1 -height 12 -width 36
+                mouse-press 29 8 button1 -height 12 -width 36
+                mouse-release 29 8 button1 524288 -height 12 -width 36
+            }
+        }
+    }
+}
+with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-edit-part -name State1 | get-edit-part -className DNodeListName2EditPart
+    with [get-edit-part -name State2] {
+        get-target-connection 0
+        get-edit-part -className DNodeListName2EditPart
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
