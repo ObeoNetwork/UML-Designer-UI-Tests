@@ -31,5 +31,6 @@ _ua7uIN32EeS32_At8WTqBw	// kind: 'test' name: 'CreateNewFinalStateNodeInStateMac
 _ptoX4N3-EeS32_At8WTqBw	// kind: 'test' name: 'CreateNewChoiceNodeInStateMachineDiagram' path: '../StateMachineDiagram/CreateNewChoiceNodeInStateMachineDiagram.test'
 _lwzEAN4AEeS32_At8WTqBw	// kind: 'test' name: 'CreateNewJunctionNodeInStateMachineDiagram' path: '../StateMachineDiagram/CreateNewJunctionNodeInStateMachineDiagram.test'
 _P7FeUK1sEeW3duxN41WP3w	// kind: 'test' name: 'ChangeStateMachineOrientationInStateMachineDiagram' path: '../StateMachineDiagram/ChangeStateMachineOrientationInStateMachineDiagram.test'
+_f2xIIJ_oEeW6xoTb4HKHNA	// kind: 'test' name: 'DirectEditTransitionInStateMachineDiagram' path: '../StateMachineDiagram/DirectEditTransitionInStateMachineDiagram.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
