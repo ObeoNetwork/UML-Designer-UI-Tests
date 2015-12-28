@@ -5,7 +5,7 @@ Element-Type: testsuite
 Element-Version: 2.0
 Id: _f9KRkJWrEeSFgY1mGxkuMg
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/17/15 3:50 PM
+Save-Time: 12/28/15 3:18 PM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -30,5 +30,6 @@ _wg71QN6OEeS6weNBnDaFmQ	// kind: 'test' name: 'ReconnectTransitionSourceInStateM
 _ua7uIN32EeS32_At8WTqBw	// kind: 'test' name: 'CreateNewFinalStateNodeInStateMachineDiagram' path: '../StateMachineDiagram/CreateNewFinalStateNodeInStateMachineDiagram.test'
 _ptoX4N3-EeS32_At8WTqBw	// kind: 'test' name: 'CreateNewChoiceNodeInStateMachineDiagram' path: '../StateMachineDiagram/CreateNewChoiceNodeInStateMachineDiagram.test'
 _lwzEAN4AEeS32_At8WTqBw	// kind: 'test' name: 'CreateNewJunctionNodeInStateMachineDiagram' path: '../StateMachineDiagram/CreateNewJunctionNodeInStateMachineDiagram.test'
+_P7FeUK1sEeW3duxN41WP3w	// kind: 'test' name: 'ChangeStateMachineOrientationInStateMachineDiagram' path: '../StateMachineDiagram/ChangeStateMachineOrientationInStateMachineDiagram.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--

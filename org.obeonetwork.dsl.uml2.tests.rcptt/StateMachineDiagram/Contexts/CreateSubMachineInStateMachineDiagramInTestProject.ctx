@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _GLuUcN6UEeS6weNBnDaFmQ
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/9/15 10:42 AM
+Save-Time: 12/23/15 12:07 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -14,17 +14,26 @@ Entry-Name: .ecl.context
 
 // create a SubMachine in State Machine diagram Region1
 with [get-editor "NewModel State Machine Diagram"] {
-    with [get-palette | get-palette-entry Submachine] {
-            mouse-move 62 10 button1 -height 23 -width 134
-            mouse-press 62 10 button1 -height 23 -width 134
-            mouse-release 62 10 button1 524288 -height 23 -width 134
+    with [get-palette] {
+        with [get-palette-entry "State machine"] {
+            mouse-move 37 17 button1 -height 23 -width 178
+            mouse-press 37 17 button1 -height 23 -width 178
+            mouse-release 37 17 button1 524288 -height 23 -width 178
+        }
     }
-    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel 
-        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 
-        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-        mouse-move 63 366 button1 -height 481 -width 571
-        mouse-press 63 366 button1 -height 481 -width 571
-        mouse-release 63 366 button1 524288 -height 481 -width 571
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram"] {
+        with [get-edit-part -name NewModel | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
+            -name Region1] {
+            mouse-move 367 173 button1 -height 399 -width 790
+            mouse-press 367 173 button1 -height 399 -width 790
+            mouse-release 367 173 button1 524288 -height 399 -width 790
+        }
     }
 }
+
+get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
+    -name Region1 | get-edit-part -name StateMachine2
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

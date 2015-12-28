@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_X-rQgH-QEeS4X6G9cD21hw,_Erm0gN3vEeS32_At8WTqBw,_a6UsUOJ3EeSa1-TOz3bdSg,_j-dzcN3vEeS32_At8WTqBw,_GLuUcN6UEeS6weNBnDaFmQ
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_X-rQgH-QEeS4X6G9cD21hw,_Erm0gN3vEeS32_At8WTqBw,_j-dzcN3vEeS32_At8WTqBw,_GLuUcN6UEeS6weNBnDaFmQ
 Element-Name: CreateNewRegionInStateMachineDiagram
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _diHp0N3pEeS32_At8WTqBw
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 7/30/15 9:52 AM
+Save-Time: 12/23/15 2:14 PM
 Testcase-Type: ecl
 Verifications: _8vEmUN3vEeS32_At8WTqBw
 
@@ -50,13 +50,10 @@ with [get-editor "NewModel State Machine Diagram"] {
 with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
     -className DNodeContainerViewNodeContainerCompartmentEditPart] {
-    get-figure "1/0" 
-        | get-property "getContents().getChildren().BorderedNodeFigure[1].getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Region2 | verify-true
-    with [get-edit-part -name Region2 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-        get-property "getFigure().isVisible()" | equals true | verify-true
-    }
+    get-edit-part -name Region1 | get-edit-part -name Region1 
+    get-edit-part -name Region2 | get-edit-part -name Region2 
 }
+
 
 // Check model
 with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
@@ -67,21 +64,7 @@ with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-e
     }
 }
 
-//Try to create region outside of State Machine diagram (invalid action)
-with [get-editor "NewModel State Machine Diagram"] {
-    with [get-palette | get-palette-entry Region] {
-        mouse-move 62 15 button1 -height 23 -width 134
-        mouse-press 62 15 button1 -height 23 -width 134
-        mouse-release 62 15 button1 524288 -height 23 -width 134
-    }
-    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram"] {
-        mouse-move 960 82 button1 -height 524 -width 980
-        mouse-press 960 82 button1 -height 524 -width 980
-        mouse-release 960 82 button1 524288 -height 524 -width 980
-    }
- }
- 
- //Try to create region in a region (invalid action)
+ //Try to create region in a region (add new region to parent state machine)
  with [get-editor "NewModel State Machine Diagram"] {
     with [get-palette | get-palette-entry Region] {
         mouse-move 20 15 button1 -height 23 -width 134
@@ -102,6 +85,23 @@ with [get-editor "NewModel State Machine Diagram"] {
         }
     }
 }
+// Check diagram
+with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    get-edit-part -name Region1 | get-edit-part -name Region1
+    get-edit-part -name Region2 | get-edit-part -name Region2
+    get-edit-part -name Region3 | get-edit-part -name Region3
+}
+// Check model
+with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    with [get-edit-part -name Region3 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        get-property "element.target.name" | equals Region3 | verify-true
+    }
+}
+
 
 // Create a region in a state
 // Create a region in previous state
@@ -123,14 +123,14 @@ with [get-editor "NewModel State Machine Diagram"] {
 }
 // Check diagram
 with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
-    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name State1 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-    get-property childrenCount | equals 1 | verify-true
-    get-property "getFigure().getChildren().AnimatableScrollPane[1].getChildren().FreeformViewport[0].getContents().getChildren().BorderedNodeFigure[0].getChildren().DefaultSizeNodeFigure[0].getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Region1 | verify-true
-}
+-name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 
+    | get-edit-part -name Region1 | get-edit-part -name State1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart]{
+	    get-edit-part -name Region1 | get-edit-part -name Region1 | get-property visible | equals true | verify-true
+        get-property childrenCount | equals 1 | verify-true
+    }
+
 // Check Model
 with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
@@ -142,23 +142,48 @@ with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-e
     get-property "element.name" | equals State1 | verify-true
 }
 
-// Create a region in a Submachine
+// Create a region in a region of Sub-StateMachine
 with [get-editor "NewModel State Machine Diagram"] {
     with [get-palette | get-palette-entry Region] {
-        mouse-move 65 12 button1 -height 23 -width 134
-        mouse-press 65 12 button1 -height 23 -width 134
-        mouse-release 65 12 button1 524288 -height 23 -width 134
+        mouse-move 23 9 button1 -height 23 -width 178
+        mouse-press 23 9 button1 -height 23 -width 178
+        mouse-release 23 9 button1 524288 -height 23 -width 178
     }
-    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel 
         | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
-        with [get-edit-part -name Region1 | get-edit-part 
-            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-            with [get-edit-part -name StateMachine2 | get-edit-part 
-                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-                mouse-move 96 45 button1 -height 68 -width 148
-                mouse-press 96 45 button1 -height 68 -width 148
-                mouse-release 96 45 button1 524288 -height 68 -width 148
+        with [get-edit-part -name Region1 | get-edit-part -name Region1 | get-edit-part -name StateMachine2] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+                -name Region1 | get-edit-part -name Region1] {
+                mouse-move 37 11 button1 -height 40 -width 97
+                mouse-press 37 11 button1 -height 40 -width 97
+                mouse-release 37 11 button1 524288 -height 40 -width 97
             }
+        }
+    }
+ }
+// Check diagram
+with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
+    -name Region1 | get-edit-part -name StateMachine2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    get-edit-part -name Region1 | get-edit-part -name Region1
+    get-edit-part -name Region2 | get-edit-part -name Region2
+}
+
+// Create a region in a Sub-StateMachine
+with [get-editor "NewModel State Machine Diagram"] {
+    with [get-palette | get-palette-entry Region] {
+        mouse-move 38 16 button1 -height 23 -width 178
+        mouse-press 38 16 button1 -height 23 -width 178
+        mouse-release 38 16 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "NewModel State Machine Diagram" | get-edit-part -name NewModel 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name Region1 | get-edit-part -name Region1 | get-edit-part -name StateMachine2] {
+            mouse-move 123 8 button1 -height 70 -width 141
+            mouse-press 123 8 button1 -height 70 -width 141
+            mouse-release 123 8 button1 524288 -height 70 -width 141
         }
     }
 }
@@ -166,24 +191,10 @@ with [get-editor "NewModel State Machine Diagram"] {
 with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
     -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name StateMachine2 | get-edit-part 
+    -name Region1 | get-edit-part -name StateMachine2 | get-edit-part 
     -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-    with [get-edit-part -name Region1 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-        get-property "getFigure().isVisible()" | equals true | verify-true
-    }
-    get-figure "1/0" 
-        | get-property "getChildren().BorderItemsAwareFreeFormLayer[0].getChildren().BorderedNodeFigure[0].getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Region1 | verify-true
-}
-// Check diagram and model
-with [get-editor "NewModel State Machine Diagram" | get-diagram -index 1 | get-edit-part 
-    -name "NewModel State Machine Diagram" | get-edit-part -name NewModel | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Region1 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name StateMachine2 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-    with [get-edit-part -name Region1 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
-        get-property "element.target.owner.name" | equals StateMachine2 | verify-true
-        get-property "element.name" | equals Region1 | verify-true
-    }
+    get-edit-part -name Region1 | get-edit-part -name Region1
+    get-edit-part -name Region2 | get-edit-part -name Region2
+    get-edit-part -name Region3 | get-edit-part -name Region3
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
