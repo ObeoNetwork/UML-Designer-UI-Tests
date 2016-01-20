@@ -1,0 +1,75 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: Fix797Context
+Element-Type: context
+Element-Version: 2.0
+Id: _6Dh18L9jEeWmwebm3K69Cw
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 1/20/16 11:54 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+with [get-editor "test Package Containment"] {
+	// Create package1
+    with [get-palette | get-palette-entry Package] {
+        mouse-move 66 11 button1 -height 23 -width 178
+        mouse-press 66 11 button1 -height 23 -width 178
+        mouse-release 66 11 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Package Containment"] {
+        with [get-edit-part -name NewModel | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 49 6 button1 -height 71 -width 116
+            mouse-press 49 6 button1 -height 71 -width 116
+            mouse-release 49 6 button1 524288 -height 71 -width 116
+        }
+    }
+    
+    // Create package2 in Package1
+    with [get-palette | get-palette-entry Package] {
+        mouse-move 79 10 button1 -height 23 -width 178
+        mouse-press 79 10 button1 -height 23 -width 178
+        mouse-release 79 10 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Package Containment"] {
+        with [get-edit-part -name Package1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 72 21 button1 -height 71 -width 116
+            mouse-press 72 21 button1 -height 71 -width 116
+            mouse-release 72 21 button1 524288 -height 71 -width 116
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "test Package Containment" | get-edit-part -name Package1 
+        -index 1 | get-edit-part -className DNodeListNameEditPart | activate-direct-edit
+    get-editbox | set-text "Package2"
+    get-diagram -index 1 | commit-direct-edit
+    
+    // Create package3 in Package2
+    with [get-palette | get-palette-entry Package] {
+        mouse-move 25 6 button1 -height 23 -width 178
+        mouse-press 25 6 button1 -height 23 -width 178
+        mouse-release 25 6 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Package Containment"] {
+        with [get-edit-part -name Package2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 89 35 button1 -height 71 -width 116
+            mouse-press 89 35 button1 -height 71 -width 116
+            mouse-release 89 35 button1 524288 -height 71 -width 116
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "test Package Containment" | get-edit-part -name Package1 
+        -index 1 | activate-direct-edit
+    get-editbox | set-text "Package3"
+    get-diagram -index 1 | commit-direct-edit
+}
+// Check context
+with [get-editor "test Package Containment" | get-diagram -index 1 | get-edit-part -name "test Package Containment"] {
+    get-edit-part -name Package1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+        -name Package2 | get-property "getLabelText()" | equals Package2 | verify-true
+    get-edit-part -name Package2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+        -name Package3 | get-property "getEditText()" | equals Package3 | verify-true
+    get-edit-part -name Package3 | get-edit-part -className DNodeListNameEditPart | get-property "getLabelText()" 
+        | equals Package3 | verify-true
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

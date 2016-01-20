@@ -1,0 +1,68 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_Yk1UEOc3EeSXar-HajHJtg,_6Dh18L9jEeWmwebm3K69Cw
+Element-Name: Fix797PackageContainmentDiagram
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _feqXgL9gEeWmwebm3K69Cw
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 1/20/16 11:59 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Fix 797 : create circular references with Move tool
+
+Test :
+- create 3 packages : package1,  package2 in package1, package3 in package2
+- with the tool Move click on package 3
+- in the selection window, add package1
+
+Results:
+- An Error message popup is displayed, package1 is not moved.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Fix 797 possible to make circular references
+// With the tool move click on package 3 
+with [get-editor "test Package Containment"] {
+    with [get-palette] {
+        with [get-palette-entry Move] {
+            mouse-move 53 8 button1 -height 23 -width 178
+            mouse-press 53 8 button1 -height 23 -width 178
+            mouse-release 53 8 button1 524288 -height 23 -width 178
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Package Containment" | get-edit-part -name Package3 
+        | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        mouse-move 62 1 button1 -height 71 -width 116
+        mouse-press 62 1 button1 -height 71 -width 116
+        mouse-release 62 1 button1 524288 -height 71 -width 116
+    }
+}
+
+// In the selection window select the parent package1
+with [get-window "Selection Wizard"] {
+    get-tree | select "<Model> NewModel/<Package> Package1"
+    get-button Add | click
+    get-button Finish | click
+}
+
+// Check an error pop up is display
+get-window "Selection Error" | get-button OK | click
+
+// Check model is not modified
+with [get-editor "test Package Containment" | get-diagram -index 1 | get-edit-part -name "test Package Containment"] {
+    get-edit-part -name Package1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+        -name Package2 | get-property "getLabelText()" | equals Package2 | verify-true
+    get-edit-part -name Package2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+        -name Package3 | get-property "getEditText()" | equals Package3 | verify-true
+    get-edit-part -name Package3 | get-edit-part -className DNodeListNameEditPart | get-property "getLabelText()" 
+        | equals Package3 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
