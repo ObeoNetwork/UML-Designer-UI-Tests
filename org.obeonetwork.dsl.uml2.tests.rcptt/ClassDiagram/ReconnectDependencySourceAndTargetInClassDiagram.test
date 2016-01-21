@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_p5zq0M4oEeS8M6MvytM1MA,_q6tA4M8JEeSz9_HNAw245A,_CnA2YNJFEeSzLt1JkYCXlg
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_p-v3gMyvEeSmqoI7c5i_uw,_WQwpIMEDEeWCjOtz2OviAw
 Element-Name: ReconnectDependencySourceAndTargetInClassDiagram
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: __bSEwNJFEeSzLt1JkYCXlg
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 8/31/15 2:44 PM
+Save-Time: 1/22/16 1:26 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -30,86 +30,63 @@ TODO: this test only verify number of elements but not the types and styles of t
 Content-Type: text/ecl
 Entry-Name: .content
 
-
-// Move target from Dependency class to Class21
-with [get-editor "Test Class Diagram Edges"] {
-    with [get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges"] {
-       with [get-edit-part -name Dependency | get-target-connection 0] {
-            mouse-move 143 61 button1 -height 119 -width 282
-            mouse-press 143 61 button1 -height 119 -width 282
-            mouse-release 143 61  button1 524288 -height 119 -width 282
+// Reconnect target
+with [get-editor "test Class Diagram"] {
+    with [get-diagram -index 1] {
+       with [get-edit-part -name "test Class Diagram"] {
+            with [get-edit-part -name Class2 | get-target-connection 0] {
+                mouse-move 232 91 button1 -height 148 -width 368
+                mouse-press 232 91 button1 -height 148 -width 368
+                mouse-release 234 93 button1 524288 -height 152 -width 372
+            }
+            with [get-edit-part -name Class2] {
+                with [get-target-connection 0 | get-handle SiriusConnectionEndPointHandle -index 1] {
+                    mouse-move 3 3 button1 -height 7 -width 7
+                    mouse-press 3 3 button1 -height 7 -width 7
+                }
+            }
         }
-        with [get-edit-part -name Dependency | get-target-connection 0 | get-handle SiriusConnectionEndPointHandle 
-            -index 1] {
-            mouse-move 5 3 button1 -height 7 -width 7
-            mouse-press 5 3 button1 -height 7 -width 7
-        }
-        with [get-edit-part -name Class21 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+        with [get-edit-part -name "test Class Diagram" | get-edit-part -name Class1 | get-edit-part 
+            -className DNodeListViewNodeListCompartment2EditPart] {
             mouse-drag 82 19 button1 524288 -height 71 -width 116
             mouse-release 82 19 button1 524288 -height 71 -width 116
         }
     }
 }
 // Check diagram
-with [get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges" 
-    | get-edit-part -name Class21 | get-target-connection 0]  {
-    get-property "getSource().getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals DefaultClass | verify-true
-    get-property "getTarget().getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Class21 | verify-true
-    
-}
-get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges" 
-    | get-edit-part -name Dependency | verify-error{get-target-connection 0}
-// Check model
-with [get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges" 
-    | get-edit-part -name Class21 | get-target-connection 0] {
-    get-property "element.sourceNode.name" | equals DefaultClass | verify-true
-    get-property "element.targetNode.name" | equals Class21 | verify-true
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part 
+    -name Class1 | get-target-connection 0] {
+    get-property "source.element.name" | equals Class3 | verify-true
+    get-property "target.element.name" | equals Class1 | verify-true
 }
 
-// Move source from DefaultClass class to Class22
-with [get-editor "Test Class Diagram Edges"] {
-    with [get-diagram -index 1] {
-        with [get-edit-part -name "Test Class Diagram Edges"] {
-            mouse-move 475 231 button1 -height 537 -width 1057
-            mouse-press 475 231 button1 -height 537 -width 1057
+
+// Reconnect source
+
+with [get-editor "test Class Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class1 | get-target-connection 0] {
+            mouse-move 191 42 button1 -height 92 -width 439
+            mouse-press 191 42 button1 -height 92 -width 439
+            mouse-release 193 43 button1 524288 -height 95 -width 443
         }
-        get-figure "1/0" | mouse-release 0 30 button1 524288 -height 40 -width 220
-        with [get-edit-part -name "Test Class Diagram Edges"] {
-            mouse-move 475 232 -height 537 -width 1057
-            with [get-edit-part -name Class21 | get-target-connection 0] {
-                mouse-move 346 46 button1 -height 68 -width 424
-                mouse-press 346 46 button1 -height 68 -width 424
-                mouse-release 348 47 button1 524288 -height 71 -width 428
-                with [get-handle SiriusConnectionEndPointHandle] {
-                    mouse-move 4 3 button1 -height 7 -width 7
-                    mouse-press 4 3 button1 -height 7 -width 7
-                    mouse-move 4 2 -mask 524288 -height 7 -width 7
-                }
-            }
-            with [get-edit-part -name Class22]{
-                mouse-drag 1 1 button1 524288 -height 537 -width 1057
-                mouse-release 1 1 button1 524288 -height 537 -width 1057
-            }
+        with [get-edit-part -name Class1 | get-target-connection 0 | get-handle SiriusConnectionEndPointHandle 
+            -index 0] {
+            mouse-move 4 6 button1 -height 7 -width 7
+            mouse-press 4 6 button1 -height 7 -width 7
+        }
+       with [get-edit-part -name Class2 | get-edit-part 
+            -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-drag 82 19 button1 524288 -height 71 -width 116
+            mouse-release 82 19 button1 524288 -height 71 -width 116
         }
     }
+   
 }
-
 // Check diagram
-with [get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges" 
-    | get-edit-part -name Class21 | get-target-connection 0]  {
-    get-property "getSource().getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Class22 | verify-true
-    get-property "getTarget().getMainFigure().getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" 
-        | equals Class21 | verify-true
-    
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part 
+    -name Class1 | get-target-connection 0] {
+    get-property "source.element.name" | equals Class2 | verify-true
+    get-property "target.element.name" | equals Class1 | verify-true
 }
-// Check model
-with [get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-part -name "Test Class Diagram Edges" 
-    | get-edit-part -name Class21 | get-target-connection 0] {
-    get-property "element.sourceNode.name" | equals Class22 | verify-true
-    get-property "element.targetNode.name" | equals Class21 | verify-true
-}
-
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

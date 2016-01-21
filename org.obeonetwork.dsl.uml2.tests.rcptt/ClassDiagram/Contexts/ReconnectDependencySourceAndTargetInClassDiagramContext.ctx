@@ -1,0 +1,101 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ReconnectDependencySourceAndTargetInClassDiagramContext
+Element-Type: context
+Element-Version: 2.0
+Id: _WQwpIMEDEeWCjOtz2OviAw
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 1/22/16 1:26 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+//Context 
+with [get-editor "test Class Diagram"] {
+	// Create Class1
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 49 7 button1 -height 23 -width 178
+        mouse-press 49 7 button1 -height 23 -width 178
+        mouse-release 49 7 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 169 181 button1 -height 360 -width 816
+        mouse-press 169 181 button1 -height 360 -width 816
+        mouse-release 169 181 button1 524288 -height 360 -width 816
+    }
+    // Create Class2
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 76 11 button1 -height 23 -width 178
+        mouse-press 76 11 button1 -height 23 -width 178
+        mouse-release 76 11 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 382 69 button1 -height 360 -width 816
+        mouse-press 382 69 button1 -height 360 -width 816
+        mouse-release 382 69 button1 524288 -height 360 -width 816
+    }
+   // Create Class3
+   with [get-palette | get-palette-entry Class] {
+        mouse-move 50 12 button1 -height 23 -width 178
+        mouse-press 50 12 button1 -height 23 -width 178
+        mouse-release 50 12 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 622 301 button1 -height 360 -width 816
+        mouse-press 622 301 button1 -height 360 -width 816
+        mouse-release 622 301 button1 524288 -height 360 -width 816
+    }
+}
+    // Create a dependency
+
+with [get-editor "test Class Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry "Interface Realization"] {
+            mouse-move 126 10 button1 -height 23 -width 178
+            mouse-press 126 10 button1 -height 23 -width 178
+            mouse-release 126 10 button1 524288 -height 23 -width 178
+        }
+        with [get-palette-entry Dependencies] {
+            mouse-move 11 12 button1 -height 23 -width 178
+            mouse-press 11 12 button1 -height 23 -width 178
+            mouse-release 11 12 button1 524288 -height 23 -width 178
+        }
+        with [get-palette-entry Dependency] {
+            mouse-move 50 8 button1 -height 23 -width 178
+            mouse-press 50 8 button1 -height 23 -width 178
+            mouse-release 50 8 button1 524288 -height 23 -width 178
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class3] {
+            mouse-move 82 21 button1 -height 100 -width 120
+            mouse-press 82 21 button1 -height 100 -width 120
+            get-edit-part -className DNodeListViewNodeListCompartment2EditPart | mouse-release 81 37 button1 524288 
+                -height 71 -width 116
+        }
+        with [get-edit-part -name Class2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 78 3 button1 -height 71 -width 116
+            mouse-press 78 3 button1 -height 71 -width 116
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-release 78 3 button1 524288 -height 71 -width 116
+            mouse-hover 78 3 -height 71 -width 116
+        }
+    }
+}
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    get-edit-part -name Class1 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name Class2 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name Class3 | get-edit-part -className DNodeListNameEditPart | get-property visible | equals true 
+        | verify-true
+    get-edit-part -name Class2 | get-target-connection 0 | get-property visible | equals true | verify-true
+}
+get-eclipse-window | key-type ESC
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
