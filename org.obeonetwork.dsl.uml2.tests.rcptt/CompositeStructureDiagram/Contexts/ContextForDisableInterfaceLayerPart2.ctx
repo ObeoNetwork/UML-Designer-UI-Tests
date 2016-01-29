@@ -5,8 +5,8 @@ Element-Name: ContextForDisableInterfaceLayerPart2
 Element-Type: context
 Element-Version: 2.0
 Id: _o3HjQFV2EeWxCfZ4_QRXhA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 9/7/15 5:39 PM
+Runtime-Version: 2.0.0.201506120617
+Save-Time: 1/29/16 3:50 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -50,33 +50,6 @@ with [get-window "Add existing elements"] {
     get-tree | select "<Model> NewModel"
     get-button OK | click
 }
-//drop interface from model explorer to diagram
-
-with [get-view "Model Explorer" | get-tree] {
-    select "test/model.uml/<Model> NewModel/<Component> Component1/<Interface> Interface1"
-    get-item "test/model.uml/<Model> NewModel/<Component> Component1/<Interface> Interface1" | drag-start "-10" 8
-}
-with [get-editor "Component1 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
-    -name "Component1 Composite Structure Diagram"] {
-    drag-enter 368 244 -detail move
-    drag-over 401 145 -detail copy
-    get-edit-part -name Component1 | get-figure 0 | drag-over 402 142 -detail copy
-    drag-over 402 133 -detail copy
-    get-edit-part -name Component1 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
-        | get-edit-part -name Component1 | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
-        | get-figure 1 | drag-over 35 90 -detail copy
-    drag-over 364 93 -detail copy
-    get-edit-part -name Component1 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
-        | get-figure "1/0" | drag-over 324 106 -detail copy
-    drag-exit
-    get-edit-part -name Component1 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
-        | get-figure "1/0" | drag-accept 324 106 -detail copy
-}
-get-view "Model Explorer" | get-tree | drag-set-data
-get-editor "Component1 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
-    -name "Component1 Composite Structure Diagram" | get-edit-part -name Component1 | get-edit-part 
-    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-figure "1/0" | drop 324 106 -detail copy
-get-view "Model Explorer" | get-tree | drag-end -detail copy
 
 // re-organize diagram
 with [get-editor "Component1 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
