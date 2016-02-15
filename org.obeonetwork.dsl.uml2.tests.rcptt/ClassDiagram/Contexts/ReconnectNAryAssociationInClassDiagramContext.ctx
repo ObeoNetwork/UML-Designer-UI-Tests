@@ -1,0 +1,139 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: ReconnectNAryAssociationInClassDiagramContext
+Element-Type: context
+Element-Version: 2.0
+Id: _2Hex4NPBEeWlZ7VbJUHh5g
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 2/15/16 10:26 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+// Create five classes
+with [get-editor "test Class Diagram"] {
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 21 4 button1 -height 23 -width 178
+        mouse-press 21 4 button1 -height 23 -width 178
+        mouse-release 21 4 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 151 111 button1 -height 438 -width 857
+        mouse-press 151 111 button1 -height 438 -width 857
+        mouse-release 151 111 button1 524288 -height 438 -width 857
+    }
+   with [get-palette | get-palette-entry Class] {
+        mouse-move 49 6 button1 -height 23 -width 178
+        mouse-press 49 6 button1 -height 23 -width 178
+        mouse-release 49 6 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 584 104 button1 -height 433 -width 857
+        mouse-press 584 104 button1 -height 433 -width 857
+        mouse-release 584 104 button1 524288 -height 433 -width 857
+    }
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 60 6 button1 -height 23 -width 178
+        mouse-press 60 6 button1 -height 23 -width 178
+        mouse-release 60 6 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 593 324 button1 -height 433 -width 857
+        mouse-press 593 324 button1 -height 433 -width 857
+        mouse-release 593 324 button1 524288 -height 433 -width 857
+    }
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 37 9 button1 -height 23 -width 178
+        mouse-press 37 9 button1 -height 23 -width 178
+        mouse-release 37 9 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 430 329 button1 -height 433 -width 857
+        mouse-press 430 329 button1 -height 433 -width 857
+        mouse-release 430 329 button1 524288 -height 433 -width 857
+    }
+    with [get-palette | get-palette-entry Class] {
+        mouse-move 28 1 button1 -height 23 -width 178
+        mouse-press 28 1 button1 -height 23 -width 178
+        mouse-release 28 1 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        mouse-move 268 317 button1 -height 433 -width 857
+        mouse-press 268 317 button1 -height 433 -width 857
+        mouse-release 268 317 button1 524288 -height 433 -width 857
+    }
+}
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    get-edit-part -name Class1 | get-edit-part -className DNodeListNameEditPart
+    get-edit-part -name Class2 | get-edit-part -className DNodeListNameEditPart 
+    get-edit-part -name Class3 | get-edit-part -className DNodeListNameEditPart
+    get-edit-part -name Class4 | get-edit-part -className DNodeListNameEditPart
+    get-edit-part -name Class5 | get-edit-part -className DNodeListNameEditPart
+}
+// Create association between Class1 and Class2
+with [get-editor "test Class Diagram"] {
+    with [get-palette | get-palette-entry Association] {
+        mouse-move 90 15 button1 -height 23 -width 178
+        mouse-press 90 15 button1 -height 23 -width 178
+        mouse-release 90 15 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 26 14 button1 -height 71 -width 116
+            mouse-press 26 14 button1 -height 71 -width 116
+            mouse-release 26 14 button1 524288 -height 71 -width 116
+        }
+        with [get-edit-part -name Class2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 10 16 button1 -height 71 -width 116
+            mouse-press 10 16 button1 -height 71 -width 116
+            mouse-release 10 16 button1 524288 -height 71 -width 116
+        }
+    }
+}
+
+// Create Association from Class3 to association
+with [get-editor "test Class Diagram"] {
+    with [get-palette | get-palette-entry Association] {
+        mouse-move 36 6 button1 -height 23 -width 178
+        mouse-press 36 6 button1 -height 23 -width 178
+        mouse-release 36 6 button1 524288 -height 23 -width 178
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+       with [get-edit-part -name Class3 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 44 39 button1 -height 71 -width 116
+            mouse-press 44 39 button1 -height 71 -width 116
+            mouse-release 44 57 button1 524288 -height 71 -width 116
+        }
+        with [get-edit-part -name Class2 | get-target-connection 0] {
+            mouse-move 236 29 button1 -height 61 -width 348
+            mouse-press 236 29 button1 -height 61 -width 348
+            mouse-release 236 29 button1 524288 -height 61 -width 348
+        }
+    }
+}
+
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    with [get-edit-part -name "A_Class1s_Class2s_Class3s"] {
+        get-edit-part -className WorkspaceImageEditPart | get-figure 0
+        get-edit-part -name "A_Class1s_Class2s_Class3s" | get-property "getLabelText()" 
+            | equals "A_Class1s_Class2s_Class3s" | verify-true
+        with [get-target-connection 0] {
+            get-edit-part -className "" -index 1 | get-property "getLabelText()" | equals "Class1s[*]" | verify-true
+        }
+        with [get-target-connection 1] {
+            get-edit-part -className "" -index 1 | get-property "getLabelText()" | equals "Class2s[*]" | verify-true
+        }
+        with [get-target-connection 2] {
+            get-edit-part -className "" -index 1 | get-property "getLabelText()" | equals "Class3s[*]" | verify-true
+        }
+    }
+}
+
+with [get-editor "test Class Diagram"] {
+    with [get-diagram -index 1] {
+        key-type ESC
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

@@ -5,7 +5,7 @@ Element-Type: testsuite
 Element-Version: 2.0
 Id: _OxGOMJWrEeSFgY1mGxkuMg
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 12/10/15 12:09 PM
+Save-Time: 2/15/16 9:45 AM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -51,5 +51,9 @@ _TpLzYQCnEeWzarBmX8VtHQ	// kind: 'test' name: 'RemoveAchetypeInClassDiagram' pat
 _V6-gwACwEeWzarBmX8VtHQ	// kind: 'test' name: 'AddNewArtefactInClassDiagram' path: '../ClassDiagram/AddNewArtefactInClassDiagram.test'
 _1d21kA6OEeW91PUwHXJ5rQ	// kind: 'test' name: 'ReconnectRelationshipsBindingInClassDiagram' path: '../ClassDiagram/ReconnectRelationshipsBindingInClassDiagram.test'
 _D0feUZ8mEeW-L9SgR7HbTA	// kind: 'test' name: 'Fix363StaticFeatureStyleInClassDiagram' path: '../ClassDiagram/Fix363StaticFeatureStyleInClassDiagram.test'
+_uhrisNGTEeWfG-1HemQ45A	// kind: 'test' name: 'FixBrokenNAryAssociationWithPaletteToolInClassDiagram' path: '../ClassDiagram/FixBrokenNAryAssociationWithPaletteToolInClassDiagram.test'
+_qgOZENGLEeWfG-1HemQ45A	// kind: 'test' name: 'CreateNewRelationshipsNAryAssociationWithPaletteToolInClassDiagram' path: '../ClassDiagram/CreateNewRelationshipsNAryAssociationWithPaletteToolInClassDiagram.test'
+_XKw34NGZEeWfG-1HemQ45A	// kind: 'test' name: 'SetNavigableNAryAssociationInClassDiagram' path: '../ClassDiagram/SetNavigableNAryAssociationInClassDiagram.test'
+_NxHgkNGcEeWfG-1HemQ45A	// kind: 'test' name: 'UnsetOwnedNAryAssociationInClassDiagram' path: '../ClassDiagram/UnsetOwnedNAryAssociationInClassDiagram.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
