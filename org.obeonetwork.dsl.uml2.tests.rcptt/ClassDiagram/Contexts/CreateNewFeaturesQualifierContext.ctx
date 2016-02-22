@@ -1,0 +1,44 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: CreateNewFeaturesQualifierContext
+Element-Type: context
+Element-Version: 2.0
+Id: _jZDi0NcBEeWcJLlxhSqTJQ
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 2/19/16 1:15 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+// Create a new Association between Class1 and Class2
+with [get-editor "test Class Diagram"] {
+    with [get-palette | get-palette-entry Association] {
+        mouse-move 96 7 button1 -height 23 -width 135
+        mouse-press 96 7 button1 -height 23 -width 135
+        mouse-release 96 7 button1 524288 -height 23 -width 135
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 44 47 button1 -height 71 -width 116
+            mouse-press 44 47 button1 -height 71 -width 116
+            mouse-release 44 47 button1 524288 -height 71 -width 116
+        }
+        with [get-edit-part -name Class2] {
+            mouse-move 50 2 button1 -height 100 -width 120
+            mouse-press 50 2 button1 -height 100 -width 120
+            mouse-release 50 2 button1 524288 -height 100 -width 120
+        }
+    }
+}
+
+// Check Graphical element is created
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | get-edit-part 
+    -name Class2 | get-target-connection 0] {
+    get-edit-part -className "" | get-property "getEditText()" | equals "A_class1s_class2s" | verify-true
+    get-edit-part -className "" -index 1 | get-property "getEditText()" | equals "class1s[*]" | verify-true
+    get-edit-part -className "" -index 2 | get-property "getEditText()" | equals "class2s[*]" | verify-true
+}
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

@@ -1,0 +1,43 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: DirectEditQualifierContext
+Element-Type: context
+Element-Version: 2.0
+Id: _N9siYNlPEeWBcZ7lkC-eyQ
+Runtime-Version: 1.5.5.201503020312
+Save-Time: 2/22/16 11:30 AM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+//Create a new qualifier for the association on the end class1s
+with [get-editor "test Class Diagram"] {
+    with [get-palette] {
+        with [get-palette-entry Qualifier] {
+            mouse-move 65 8 button1 -height 23 -width 178
+            mouse-press 65 8 button1 -height 23 -width 178
+            mouse-release 65 8 button1 524288 -height 23 -width 178
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+        with [get-edit-part -name Class2 | get-target-connection 0 | get-edit-part -className "" -index 1] {
+            mouse-move 35 9 button1 -height 13 -width 46
+            mouse-press 35 9 button1 -height 13 -width 46
+            mouse-release 35 9 button1 524288 -height 13 -width 46
+        }
+    }
+}
+get-window "Qualifier creation" | get-button OK | click
+//Check diagram
+with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
+    get-edit-part -name Class1 | get-edit-part -name " qualifier1" | get-edit-part -className SquareEditPart 
+        | get-property visible | equals true | verify-true
+    with [get-edit-part -name Class2 | get-target-connection 0] {
+        get-property "source.element.target.name" | equals class1s | verify-true
+        get-property "source.element.visible" | equals true | verify-true
+        get-property "target.element.name" | equals Class2 | verify-true
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

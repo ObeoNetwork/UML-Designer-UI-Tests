@@ -5,7 +5,7 @@ Element-Type: testsuite
 Element-Version: 2.0
 Id: _OxGOMJWrEeSFgY1mGxkuMg
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 2/15/16 9:45 AM
+Save-Time: 2/22/16 11:46 AM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -55,5 +55,7 @@ _uhrisNGTEeWfG-1HemQ45A	// kind: 'test' name: 'FixBrokenNAryAssociationWithPalet
 _qgOZENGLEeWfG-1HemQ45A	// kind: 'test' name: 'CreateNewRelationshipsNAryAssociationWithPaletteToolInClassDiagram' path: '../ClassDiagram/CreateNewRelationshipsNAryAssociationWithPaletteToolInClassDiagram.test'
 _XKw34NGZEeWfG-1HemQ45A	// kind: 'test' name: 'SetNavigableNAryAssociationInClassDiagram' path: '../ClassDiagram/SetNavigableNAryAssociationInClassDiagram.test'
 _NxHgkNGcEeWfG-1HemQ45A	// kind: 'test' name: 'UnsetOwnedNAryAssociationInClassDiagram' path: '../ClassDiagram/UnsetOwnedNAryAssociationInClassDiagram.test'
+_HBDgYNlPEeWBcZ7lkC-eyQ	// kind: 'test' name: 'DirectEditFeaturesQualifierInClassDiagram' path: '../ClassDiagram/DirectEditFeaturesQualifierInClassDiagram.test'
+_Ub0ugdcBEeWcJLlxhSqTJQ	// kind: 'test' name: 'CreateNewFeaturesQualifierWithPaletteToolInClassDiagram' path: '../ClassDiagram/CreateNewFeaturesQualifierWithPaletteToolInClassDiagram.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
