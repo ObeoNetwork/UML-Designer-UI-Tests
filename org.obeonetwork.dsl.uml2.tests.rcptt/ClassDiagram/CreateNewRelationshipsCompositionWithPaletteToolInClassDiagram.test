@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _wbk6gM1_EeSHkpcdtO-QuQ
 Runtime-Version: 1.5.5.201503020312
-Save-Time: 12/1/15 4:39 PM
+Save-Time: 3/22/16 10:53 AM
 Testcase-Type: ecl
 Verifications: _-E_PIM2CEeSHkpcdtO-QuQ
 
@@ -80,7 +80,8 @@ with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -na
     -name Class2 | get-target-connection 0 | get-edit-part -className "" -index 1] {
     get-property "element.ownedStyle.customFeatures" | equals "[]" | verify-true
     get-property "element.ownedStyle.lineStyle" | equals solid | verify-true
-    get-property "element.ownedStyle.targetArrow" | equals InputArrowWithFillDiamond | verify-true
+    get-property "element.ownedStyle.targetArrow" | equals InputArrow| verify-true
+    get-property "element.ownedStyle.sourceArrow" | equals FillDiamond | verify-true
     get-property "element.ownedStyle.foldingStyle" | equals NONE | verify-true
     get-property "element.ownedStyle.size" | equals 1 | verify-true
     get-property "element.ownedStyle.routingStyle" | equals straight | verify-true
