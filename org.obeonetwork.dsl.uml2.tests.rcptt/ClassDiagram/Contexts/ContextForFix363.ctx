@@ -5,8 +5,8 @@ Element-Name: ContextForFix363
 Element-Type: context
 Element-Version: 2.0
 Id: _uTIVAJ8tEeW-L9SgR7HbTA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 12/10/15 12:06 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/1/16 2:52 PM
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -89,22 +89,22 @@ with [get-window "New typed property selection"] {
     get-button OK | click
 }
 // Create component with attributs port, property, extension end
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
+get-view "Model Explorer" | get-tree | select "*test/model.uml/<Model> NewModel" 
     | get-menu "New Child/Owned Type/Component" | click
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+get-view "Model Explorer" | get-tree | select "*test/model.uml/<Model> NewModel/<Component> Component1" 
     | get-menu "New Child/Owned Port/Port" | click
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+get-view "Model Explorer" | get-tree | select "*test/model.uml/<Model> NewModel/<Component> Component1" 
     | get-menu "New Child/Owned Attribute/Extension End" | click
 get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 3 253 
     -height 433 -width 535
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
+get-view "Model Explorer" | get-tree | select "*test/model.uml/<Model> NewModel/<Component> Component1" 
     | get-menu "New Child/Owned Attribute/Property" | click
 get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 0 264 
     -height 433 -width 535
 // Drag component into diagram
 with [get-view "Model Explorer" | get-tree] {
-    select "test/model.uml/<Model> NewModel/<Component> Component1"
-    get-item "test/model.uml/<Model> NewModel/<Component> Component1" | drag-start "-4" 9
+    select "*test/model.uml/<Model> NewModel/<Component> Component1"
+    get-item "*test/model.uml/<Model> NewModel/<Component> Component1" | drag-start "-4" 9
 }
 with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
     drag-enter 16 90 -detail move

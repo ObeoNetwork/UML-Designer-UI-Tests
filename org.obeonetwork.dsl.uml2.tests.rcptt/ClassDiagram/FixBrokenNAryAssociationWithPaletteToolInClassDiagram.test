@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _uhrisNGTEeWfG-1HemQ45A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 2/22/16 12:05 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 10:52 AM
 Testcase-Type: ecl
 Verifications: _dbMi4NGTEeWfG-1HemQ45A
 
@@ -92,4 +92,7 @@ with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -na
     get-target-connection 4 | get-edit-part -className "" -index 1 | get-property "getLabelText()" 
         | equals "class5s[*]" | verify-true
 }
+
+
+get-button "Save (M1+S)" | click
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

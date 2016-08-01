@@ -14,7 +14,7 @@ Entry-Name: .ecl.context
 
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/Activity Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Activity Diagram" | get-button OK | click
 with [get-editor "NewModel Activity Diagram" | get-diagram -index 1] {
     with [get-edit-part -name "NewModel Activity Diagram"] {
         mouse-move 42 72 -height 343 -width 607

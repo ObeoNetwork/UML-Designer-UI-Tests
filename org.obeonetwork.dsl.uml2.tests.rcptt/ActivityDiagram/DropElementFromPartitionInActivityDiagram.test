@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _2M0wMN3BEeS8j822Nc50oQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/8/15 10:34 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 3:07 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -21,12 +21,47 @@ Test:
 Drag and drop "Compile Additional information" from "Proposal Owner" partition to "Quote Owner" partition.
 
 Result:
+- element is moved to Proposal Owner
 - element is moved to Quote Owner partition
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
 Entry-Name: .content
 
+// Drop a decision node from "Customers sales interface" partition to "Proposal Owner" partition
+with [get-editor "Sales Activity"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Sales Activity" | get-edit-part -name Sales | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+            -name "Customers Sales Interface" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 129 30 -height 673 -width 346
+            with [get-edit-part -name "Decision_1" | get-edit-part -className LozengeEditPart] {
+                mouse-move 16 13 button1 -height 30 -width 30
+                mouse-press 16 13 button1 -height 30 -width 30
+                mouse-hover 16 13 -mask 524288 -height 30 -width 30
+                mouse-move 24 15 -mask 524288 -height 30 -width 30
+            }
+        }
+        mouse-drag 180 63 -mask 524288 -height 788 -width 1163
+        with [get-edit-part -name "Sales Activity" | get-edit-part -name Sales | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Proposal Owner" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-drag 141 118 button1 -height 675 -width 526
+            mouse-release 141 118 button1 -height 675 -width 526
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Sales Activity"] {
+        with [get-edit-part -name Sales | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | get-edit-part -name "Proposal Owner" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-release 141 119 button1 524288 -height 675 -width 526
+            get-edit-part -name "Decision_1" | get-edit-part -className LozengeEditPart | mouse-hover 12 12 -height 30 
+                -width 30
+        }
+        mouse-move 1003 87 -height 788 -width 1163
+    }
+}
 // Drop an opaque action from "Proposal Owner" partition to "Quote Owner" partition
 with [get-editor "Sales Activity" | get-diagram -index 1 | get-edit-part -name "Sales Activity" | get-edit-part 
     -name Sales | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
@@ -58,4 +93,5 @@ with [get-editor "Sales Activity" | get-diagram -index 1 | get-edit-part -name "
     get-property "element.semanticElements.ActivityPartition[0].containedNode.OpaqueAction[1].name" 
         | equals "Compile additional information" | verify-true
 }
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

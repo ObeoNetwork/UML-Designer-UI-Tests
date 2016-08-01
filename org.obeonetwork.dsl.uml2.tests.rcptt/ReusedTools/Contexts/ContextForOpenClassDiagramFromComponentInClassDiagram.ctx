@@ -5,8 +5,8 @@ Element-Name: ContextForOpenClassDiagramFromComponentInClassDiagram
 Element-Type: context
 Element-Version: 2.0
 Id: _3K-BwOpqEeSF3IIPVxcnCQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/24/15 12:19 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:24 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,7 +15,7 @@ Entry-Name: .ecl.context
 // Create a component diagram
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/NewModel Component Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Component Diagram" | get-button OK | click
 
 // Create a component
 with [get-editor "NewModel Component Diagram"] {  
@@ -44,7 +44,7 @@ with [get-editor "NewModel Component Diagram"] {
         get-menu "New/Class diagram" | click
     }
 }
-get-window "New Representation" | get-button OK | click
+get-window "New Class Diagram" | get-button OK | click
 
 // Close new class diagram
 get-editor "Component1 Class Diagram" | get-diagram -index 1 | get-edit-part -name "Component1 Class Diagram" 
@@ -54,7 +54,7 @@ get-window Save | get-button No | click
 // Create a new Class diagram from model
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/NewModel Class Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Class Diagram" | get-button OK | click
 //Drop component in class diagram
 with [get-view "Model Explorer" | get-tree] {
     select "test/model.uml/<Model> NewModel/<Component> Component1"

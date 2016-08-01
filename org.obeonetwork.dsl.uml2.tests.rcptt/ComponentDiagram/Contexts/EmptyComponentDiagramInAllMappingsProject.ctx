@@ -14,8 +14,8 @@ Entry-Name: .ecl.context
 
 get-view "Model Explorer" | get-tree | select "AllMappings/model.uml/<Model> Test" 
     | get-menu "New Representation/Test Component Diagram" | click
-with [get-window "New Representation"] {
-    get-editbox -after [get-label "Representation name:"] | set-text "Test Component Diagram2"
+with [get-window "New Component Diagram"] {
+    get-editbox -after [get-label "Name:"] | set-text "Test Component Diagram2"
     get-button OK | click
 }
 

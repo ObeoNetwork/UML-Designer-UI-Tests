@@ -5,8 +5,8 @@ Element-Name: EmptyContainmentPackageDiagramInTestProject
 Element-Type: context
 Element-Version: 2.0
 Id: _Yk1UEOc3EeSXar-HajHJtg
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/20/15 10:30 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 4:42 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,8 +15,8 @@ Entry-Name: .ecl.context
 // Create an empty Package Containment in 
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/NewModel Package Containment" | click
-with [get-window "New Representation"] {
-    get-editbox -after [get-label "Representation name:"] | set-text "test Package Containment"
+with [get-window "New Package Containment"] {
+    get-editbox -after [get-label "Name:"] | set-text "test Package Containment"
     get-button OK | click
 }
 // Activate the component layer

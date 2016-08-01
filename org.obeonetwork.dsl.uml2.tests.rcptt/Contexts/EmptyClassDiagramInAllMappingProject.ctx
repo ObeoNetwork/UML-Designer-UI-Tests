@@ -5,8 +5,8 @@ Element-Name: EmptyClassDiagramInAllMappingProject
 Element-Type: context
 Element-Version: 2.0
 Id: _nN0RgM7fEeSz9_HNAw245A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/15/15 9:56 AM
+Runtime-Version: 2.0.1.201508250612
+Save-Time: 7/27/16 10:11 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,8 +15,8 @@ Entry-Name: .ecl.context
 with [get-view "Model Explorer" | get-tree] {
     select "AllMappings/model.uml/<Model> Test" | get-menu "New Representation/Test Class Diagram" | click
 }
-with [get-window "New Representation"] {
-    with [get-editbox -after [get-label "Representation name:"]] {
+with [get-window "New Class Diagram"] {
+    with [get-editbox -after [get-label "Name:"]] {
        set-text "RcpTT Test Class Diagram"
     }
     get-button OK | click

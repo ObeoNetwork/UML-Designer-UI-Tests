@@ -5,8 +5,8 @@ Element-Name: ContextForCreateNewObjectFlowsInActivityDiagramTest
 Element-Type: context
 Element-Version: 2.0
 Id: _n-0AIN0CEeS8j822Nc50oQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/7/15 6:40 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 12:16 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -85,8 +85,7 @@ with [get-editor "NewModel Activity Diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" 
         | get-edit-part -name NewModel | get-edit-part 
         -className DNodeContainerViewNodeContainerCompartmentEditPart] {
-        with [get-edit-part -name "OpaqueAction1\n\n"
-            + "// TODO body of OpaqueAction1" | get-edit-part 
+        with [get-edit-part -name "OpaqueAction1" | get-edit-part 
             -className DNodeContainerViewNodeContainerCompartment2EditPart] {
             mouse-move 13 37 button1 CTRL -height 68 -width 162
             mouse-press 13 37 button1 CTRL -height 68 -width 162
@@ -96,8 +95,7 @@ with [get-editor "NewModel Activity Diagram"] {
     // Create input pin on OpaqueAction2
     with [get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" | get-edit-part -name NewModel 
         | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
-        with [get-edit-part -name "OpaqueAction2\n\n"
-            + "// TODO body of OpaqueAction2" | get-edit-part 
+        with [get-edit-part -name "OpaqueAction2" | get-edit-part 
             -className DNodeContainerViewNodeContainerCompartment2EditPart] {
             mouse-move 24 41 button1 CTRL -height 68 -width 162
             mouse-press 24 41 button1 CTRL -height 68 -width 162
@@ -123,8 +121,7 @@ with [get-editor "NewModel Activity Diagram"] {
     // Create Output Pin on OpaqueAction2
     with [get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" | get-edit-part -name NewModel 
         | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
-        -name "OpaqueAction2\n\n"
-        + "// TODO body of OpaqueAction2"] {
+        -name "OpaqueAction2"] {
         with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
             mouse-move 141 42 button1 CTRL -height 68 -width 162
             mouse-press 141 42 button1 CTRL -height 68 -width 162
@@ -134,8 +131,7 @@ with [get-editor "NewModel Activity Diagram"] {
     // Create Output Pin on OpaqueAction1
     with [get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" | get-edit-part -name NewModel 
         | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
-        -name "OpaqueAction1\n\n"
-        + "// TODO body of OpaqueAction1" | get-edit-part 
+        -name "OpaqueAction1"| get-edit-part 
         -className DNodeContainerViewNodeContainerCompartment2EditPart] {
         mouse-move 128 44 button1 CTRL -height 68 -width 162
         mouse-press 128 44 button1 CTRL -height 68 -width 162

@@ -5,16 +5,21 @@ Element-Name: EmptyActivityDiagramInTestsProject
 Element-Type: context
 Element-Version: 2.0
 Id: _w18PUNz2EeS8j822Nc50oQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/14/15 10:55 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 12:01 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
-    | get-menu "New Representation/Activity Diagram" | click
-get-window "New Representation" | get-button OK | click
-get-editor "NewModel Activity Diagram" | get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" 
-    | mouse-move 230 197 -height 206 -width 523
+// Load models, this should open the dashbaord automatically
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel"
+wait 2000
+// Get the activity explorer
+with [get-editor "<Model> NewModel - Activity Explorer"] {
+	// Create a new diagram
+    get-link "" | click
+    get-section Design | get-link "Create new Activity diagram" | click
+}
+get-window "New Activity Diagram" | get-button OK | click
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

@@ -1,20 +1,22 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
 Context-Type: org.eclipse.rcptt.ctx.ecl
-Element-Name: EmptyUseCaseDiagramInTestProject
+Element-Name: Save
 Element-Type: context
 Element-Version: 2.0
-Id: _74q1YNMQEeSYFrQZGshlCQ
+Id: _OK9B8FlZEeah8eRY8lLutA
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 8/3/16 12:17 PM
+Save-Time: 8/3/16 11:04 AM
 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Save
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel"
-    | get-menu "New Representation/NewModel Use Case Diagram" | click
-with [get-window "New Use Case Diagram"] {
-    get-button OK | click
-}
+get-button "Save (M1+S)" | click
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

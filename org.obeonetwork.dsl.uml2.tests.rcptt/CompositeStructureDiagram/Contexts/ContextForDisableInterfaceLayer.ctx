@@ -5,8 +5,8 @@ Element-Name: ContextForDisableInterfaceLayer
 Element-Type: context
 Element-Version: 2.0
 Id: _1qb3AFVxEeWxCfZ4_QRXhA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 9/7/15 5:07 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 3:33 PM
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -22,7 +22,7 @@ Entry-Name: .ecl.context
 // create a component diagram
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/NewModel Component Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Component Diagram" | get-button OK | click
 
 
 //Create two main components CPT1 CPT2

@@ -5,8 +5,8 @@ Element-Name: CreateNewPackageHierarchyDiagramInTestProject
 Element-Type: context
 Element-Version: 2.0
 Id: _d_d60N6yEeS6weNBnDaFmQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/9/15 2:19 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 5:04 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -17,5 +17,5 @@ with [get-view "Model Explorer" | get-tree] {
     select "test/model.uml/<Model> NewModel" | double-click
     select "test/model.uml/<Model> NewModel" | get-menu "New Representation/NewModel Package Hierarchy" | click
 }
-get-window "New Representation" | get-button OK | click
+get-window "New Package Hierarchy" | get-button OK | click
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

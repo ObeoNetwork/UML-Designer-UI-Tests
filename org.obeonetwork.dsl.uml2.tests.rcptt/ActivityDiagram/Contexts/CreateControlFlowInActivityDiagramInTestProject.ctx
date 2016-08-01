@@ -5,8 +5,8 @@ Element-Name: CreateControlFlowInActivityDiagramInTestProject
 Element-Type: context
 Element-Version: 2.0
 Id: _WWV_sN0lEeS8j822Nc50oQ
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 5/11/15 4:04 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/2/16 2:38 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -21,8 +21,7 @@ with [get-editor "NewModel Activity Diagram"] {
     }
     with [get-diagram -index 1 | get-edit-part -name "NewModel Activity Diagram" | get-edit-part -name NewModel 
         | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
-       with [get-edit-part -name "OpaqueAction1\n\n"
-            + "// TODO body of OpaqueAction1" | get-edit-part 
+       with [get-edit-part -name "OpaqueAction1"| get-edit-part 
             -className DNodeContainerViewNodeContainerCompartment2EditPart] {
             mouse-move 139 38 button1 -height 68 -width 162
             mouse-press 139 38 button1 -height 68 -width 162

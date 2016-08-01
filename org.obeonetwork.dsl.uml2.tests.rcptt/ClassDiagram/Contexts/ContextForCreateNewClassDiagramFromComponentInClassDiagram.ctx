@@ -5,15 +5,15 @@ Element-Name: ContextForCreateNewClassDiagramFromComponentInClassDiagram
 Element-Type: context
 Element-Version: 2.0
 Id: _enz-sOjuEeSbrNfps6-q5Q
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 5/28/15 4:59 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/1/16 4:14 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
 //Create a Compent in test project
-get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
+get-view "Model Explorer" | get-tree | select "*test/model.uml/<Model> NewModel" 
     | get-menu "New Child/Owned Type/Component" | click
 get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram" | mouse-move 7 311 
 // Add component to Class Diagram

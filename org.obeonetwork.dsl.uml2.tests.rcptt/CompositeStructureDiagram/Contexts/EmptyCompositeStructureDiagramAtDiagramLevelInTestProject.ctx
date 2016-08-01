@@ -21,7 +21,7 @@ Entry-Name: .ecl.context
 // Create new diagram
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/NewModel Composite Structure Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Composite Structure Diagram" | get-button OK | click
 
 
 // Check empty image is displayed

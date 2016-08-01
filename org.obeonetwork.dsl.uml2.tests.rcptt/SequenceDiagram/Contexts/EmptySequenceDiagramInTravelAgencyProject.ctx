@@ -5,8 +5,8 @@ Element-Name: EmptySequenceDiagramInTravelAgencyProject
 Element-Type: context
 Element-Version: 2.0
 Id: _3PCqIN-NEeSEJ-mMQXHd1A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/13/15 6:17 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:27 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,8 +15,8 @@ Entry-Name: .ecl.context
 // Create a new empty sequence diagram in TravelAgency project
 get-view "Model Explorer" | get-tree | select "TravelAgency/agency.uml/<Model> Travel Agency" 
     | get-menu "New Representation/Sequence Diagram" | click
-with [get-window "New Representation"] {
-    with [get-editbox -after [get-label "Representation name:"]] {
+with [get-window "New Sequence Diagram"] {
+    with [get-editbox -after [get-label "Name:"]] {
         set-text "Test Sequence Diagram"
     }
     get-button OK | click

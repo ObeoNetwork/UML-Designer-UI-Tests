@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _wUNpAM5VEeS8M6MvytM1MA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 6/2/15 11:09 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:21 AM
 Testcase-Type: ecl
 Verifications: _qasmwM7rEeSz9_HNAw245A
 
@@ -365,4 +365,7 @@ get-editor "RcpTT Test Class Diagram" | get-diagram -index 1 | get-edit-part -na
 // Check number of elements in diagram
 get-editor "RcpTT Test Class Diagram" | get-diagram -index 1 | get-edit-part -name "RcpTT Test Class Diagram" 
     | get-property childrenCount | equals 8 | verify-true
+    
+    
+get-button "Save (M1+S)" | click
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

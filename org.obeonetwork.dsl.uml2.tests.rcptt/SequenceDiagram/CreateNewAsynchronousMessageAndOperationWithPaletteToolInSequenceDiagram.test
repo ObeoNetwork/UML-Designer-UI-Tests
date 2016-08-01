@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _Kw84QOG3EeS3L8OLI5YuWw
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 7/31/15 11:51 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:39 AM
 Testcase-Type: ecl
 Verifications: _h67PEOG4EeS3L8OLI5YuWw
 
@@ -29,40 +29,38 @@ Entry-Name: .content
 
 // Create an Asynchronous Operation From Class1 to Class2 
 with [get-editor "Test Sequence Diagram"] {
-    with [get-palette] {
-        with [get-palette-entry "CR_Asynch_Message"] {
-            mouse-move 9 19 button1 -height 37 -width 154
-            mouse-press 9 19 button1 -height 37 -width 154
-            mouse-release 9 19 button1 524288 -height 37 -width 154
+    with [get-palette | get-palette-entry "Asynchronous Message" -index 1] {
+        mouse-move 54 19 button1 -height 39 -width 194
+        mouse-press 54 19 button1 -height 39 -width 194
+        mouse-release 54 19 button1 524288 -height 39 -width 194
+        mouse-hover 54 19 -height 39 -width 194
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+        mouse-move 245 221 -height 500 -width 959
+        with [get-edit-part -name "Class1 : Class1 [1]" | get-edit-part -name Class1 | get-edit-part 
+            -className SquareEditPart] {
+            mouse-move 7 131 button1 -height 410 -width 10
+            mouse-press 7 131 button1 -height 410 -width 10
+            mouse-release 7 131 button1 524288 -height 410 -width 10
         }
-        with [get-palette-entry "Asynchronous Message and Operation Creation"] {
-            mouse-move 43 23 button1 -height 52 -width 154
-            mouse-press 43 23 button1 -height 52 -width 154
-            mouse-release 43 23 button1 524288 -height 52 -width 154
+        mouse-move 513 213 -height 500 -width 959
+        with [get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part 
+            -className SquareEditPart] {
+            mouse-move 6 124 button1 -height 410 -width 10
+            mouse-press 6 124 button1 -height 410 -width 10
         }
     }
     with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        with [get-edit-part -name "Class1 : Class1 [1]" | get-edit-part -name Class1 | get-edit-part 
+        with [get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part 
             -className SquareEditPart] {
-            mouse-move 7 58 button1 -height 400 -width 10
-            mouse-press 7 58 button1 -height 400 -width 10
-            mouse-release 7 58 button1 524288 -height 400 -width 10
+            mouse-release 6 124 button1 524288 -height 410 -width 10
+            mouse-hover 6 124 -height 410 -width 10
         }
-         with [get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part 
-            -className SquareEditPart] {
-            mouse-move 6 58 button1 -height 400 -width 10
-            mouse-press 6 58 button1 -height 400 -width 10
-            mouse-release 6 58 button1 524288 -height 400 -width 10
-        }
+        mouse-move 973 229 -height 500 -width 956
     }
 }
 
 // Check Arrow from Class1 to Class2 
-with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-    get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part -name "Operation_1" 
-        | get-target-connection 0 | get-edit-part -className SequenceMessageNameEditPart | get-property "getFigure().getText()" 
-        | equals "Operation_1" | verify-true
-}
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" 
     | get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part -name "Operation_1" 
     | get-target-connection 0] {
@@ -79,35 +77,41 @@ with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part 
 }
 // Create an Asynchronous Message From Actor1 to Actor2 
 with [get-editor "Test Sequence Diagram"] {
-     with [get-palette | get-palette-entry "Asynchronous Message and Operation Creation"] {
-        mouse-move 47 14 button1 -height 37 -width 288
-        mouse-press 47 14 button1 -height 37 -width 288
-        mouse-release 47 14 button1 524288 -height 37 -width 288
+    with [get-palette] {
+        with [get-palette-entry "Asynchronous Message" -index 1] {
+            mouse-move 62 14 button1 -height 23 -width 202
+            mouse-press 62 14 button1 -height 23 -width 202
+            mouse-release 62 14 button1 524288 -height 23 -width 202
+            mouse-hover 62 14 -height 23 -width 202
+            mouse-move 45 6 -height 23 -width 202
+        }
+        get-palette-entry "Synchronous Message" -index 1 | mouse-move 14 20 -height 23 -width 202
     }
     with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        mouse-move 515 97 -height 500 -width 750
+        mouse-move 733 214 -height 500 -width 956
         with [get-edit-part -name "Actor1 : Actor1 [1]" | get-edit-part -name Actor1 | get-edit-part 
             -className SquareEditPart] {
-            mouse-move 5 16 button1 -height 400 -width 10
-            mouse-press 5 16 button1 -height 400 -width 10
-            mouse-release 5 16 button1 524288 -height 400 -width 10
+            mouse-move 4 125 button1 -height 410 -width 10
+            mouse-press 4 125 button1 -height 410 -width 10
+            mouse-hover 4 125 -mask 524288 -height 410 -width 10
+            mouse-release 4 125 button1 524288 -height 410 -width 10
         }
+        mouse-move 897 216 -height 500 -width 956
         with [get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part 
             -className SquareEditPart] {
-            mouse-move 3 20 button1 -height 400 -width 10
-            mouse-press 3 20 button1 -height 400 -width 10
-            mouse-release 3 20 button1 524288 -height 400 -width 10
+            mouse-hover 1 128 -height 410 -width 10
+            mouse-move 1 128 button1 -height 410 -width 10
+            mouse-press 1 128 button1 -height 410 -width 10
         }
     }
-   
+    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+        get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part 
+            -className SquareEditPart | mouse-release 1 128 button1 524288 -height 410 -width 10
+        mouse-move 1054 165 -height 500 -width 981
+    }
 }
 // Check diagram
 // Check arrow label
-with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-    get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part -name "Message_1" 
-        | get-target-connection 0 | get-edit-part -className SequenceMessageNameEditPart | get-property "getFigure().getText()" 
-        | equals "Message_1" | verify-true
-}
 with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" 
     | get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part -name "Message_1"] {
     with [get-target-connection 0] {
@@ -137,4 +141,7 @@ with [get-editor "Test Sequence Diagram" | get-diagram -index 1 | get-edit-part 
         get-property "target.element.target.name" | equals "Message_1" | verify-true
     }
 }
+
+
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

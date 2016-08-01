@@ -15,7 +15,7 @@ Entry-Name: .ecl.context
 // Create a new composite structure diagram under component1
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component1" 
     | get-menu "New Representation/Component1 Composite Structure Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Composite Structure Diagram" | get-button OK | click
 
 //Enable interface layer
 with [get-editor "Component1 Composite Structure Diagram"] {

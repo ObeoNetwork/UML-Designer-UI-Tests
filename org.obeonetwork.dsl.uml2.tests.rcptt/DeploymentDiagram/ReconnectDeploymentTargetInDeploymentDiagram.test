@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _Vj2F0NfBEeSVyY6xGIhNLA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 3/31/15 6:25 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:01 AM
 Testcase-Type: ecl
 Verifications: _NpEyMNfCEeSVyY6xGIhNLA
 
@@ -65,4 +65,6 @@ with [get-editor "NewModel Deployment Diagram" | get-diagram -index 1 | get-edit
 get-editor "NewModel Deployment Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel Deployment Diagram" | get-edit-part -name ExecutionEnvironment1 
     | verify-error{get-target-connection 0}
+    
+get-button "Save (M1+S)" | click
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

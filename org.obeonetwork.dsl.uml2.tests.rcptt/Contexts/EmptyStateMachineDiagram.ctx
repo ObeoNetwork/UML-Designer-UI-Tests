@@ -14,7 +14,7 @@ Entry-Name: .ecl.context
 
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/State Machine Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New State Machine Diagram" | get-button OK | click
 with [get-editor "NewModel State Machine Diagram"] {
     with [get-diagram -index 1] {
         with [get-edit-part -name "NewModel State Machine Diagram"] {

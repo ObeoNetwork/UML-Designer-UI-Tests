@@ -5,8 +5,8 @@ Element-Name: CreateNewClassDiagramFromPackage
 Element-Type: context
 Element-Version: 2.0
 Id: _UmYcgNF1EeSZY9TTmtin1Q
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 3/23/15 4:57 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:25 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -22,8 +22,8 @@ with [get-editor "test Class Diagram" | get-diagram -index 1] {
         }
         get-menu "New/Class diagram" | click
 }
-with [get-window "New Representation"] {
-    get-editbox -after [get-label "Representation name:"] 
+with [get-window "New Class Diagram"] {
+    get-editbox -after [get-label "Name:"] 
     get-button OK | click
 }
 

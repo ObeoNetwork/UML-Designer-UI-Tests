@@ -30,8 +30,8 @@ Entry-Name: .content
 // CreateNew component diagram
 get-view "Model Explorer" | get-tree | select "AllMappings/model.uml/<Model> Test" 
     | get-menu "New Representation/Test Component Diagram" | click
-with [get-window "New Representation"] {
-    with [get-editbox -after [get-label "Representation name:"]] {
+with [get-window "New Component Diagram"] {
+    with [get-editbox -after [get-label "Name:"]] {
         set-text "Add*RelatedElementsInComponentDiagram"
     }
     get-button OK | click

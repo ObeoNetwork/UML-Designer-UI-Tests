@@ -5,8 +5,8 @@ Element-Name: ContextForMessagesAndOperationCreationInSequenceDiagramInTestProje
 Element-Type: context
 Element-Version: 2.0
 Id: _X4ZsIOG2EeS3L8OLI5YuWw
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/13/15 11:22 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:35 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -14,57 +14,64 @@ Entry-Name: .ecl.context
 
 //Create two classes and two actors in an empty sequencce diagram in test project
 with [get-editor "Test Sequence Diagram"] {
-    with [get-palette | get-palette-entry Class -index 1] {
-        mouse-move 30 9 button1 -height 23 -width 154
-        mouse-press 30 9 button1 -height 23 -width 154
-        mouse-release 30 9 button1 524288 -height 23 -width 154
+    with [get-palette] {
+         with [get-palette-entry Class -index 1] {
+            mouse-move 42 12 button1 -height 23 -width 125
+            mouse-press 42 12 button1 -height 23 -width 125
+            mouse-release 42 12 button1 524288 -height 23 -width 125
+            mouse-hover 42 12 -height 23 -width 125
+        }
     }
     with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        mouse-move 32 42 button1 -height 500 -width 773
-        mouse-press 32 42 button1 -height 500 -width 773
-        mouse-release 32 42 button1 524288 -height 500 -width 773
-    }  
-    with [get-palette | get-palette-entry Class -index 1] {
-        mouse-move 19 7 button1 -height 23 -width 154
-        mouse-press 19 7 button1 -height 23 -width 154
-        mouse-release 19 7 button1 524288 -height 23 -width 154
+        mouse-move 189 160 button1 -height 416 -width 920
+        mouse-press 189 160 button1 -height 416 -width 920
+        mouse-release 189 160 button1 524288 -height 416 -width 920
     }
     with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        mouse-move 260 50 button1 -height 500 -width 773
-        mouse-press 260 50 button1 -height 500 -width 773
-        mouse-release 260 50 button1 524288 -height 500 -width 773
+        mouse-hover 189 160 -height 500 -width 920
+        mouse-move 923 192 -height 500 -width 920
     }
     with [get-palette] {
-        with [get-palette-entry Lifeline] {
-            mouse-move 7 11 button1 -height 23 -width 154
-            mouse-press 7 11 button1 -height 23 -width 154
-            mouse-release 7 11 button1 524288 -height 23 -width 154
+        get-palette-entry Actor -index 1 | mouse-move 27 1 -height 23 -width 125
+        with [get-palette-entry Class -index 1] {
+            mouse-move 31 13 button1 -height 23 -width 125
+            mouse-press 31 13 button1 -height 23 -width 125
+            mouse-release 31 13 button1 524288 -height 23 -width 125
+            mouse-hover 31 13 -height 23 -width 125
         }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+        mouse-move 469 73 button1 -height 500 -width 920
+        mouse-press 469 73 button1 -height 500 -width 920
+        mouse-release 469 73 button1 524288 -height 500 -width 920
+    }
+    get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" | mouse-move 926 208 -height 500 -width 920
+    with [get-palette] {
+        get-palette-entry "Synchronous Message" -index 1 | mouse-move 22 0 -height 39 -width 125
         with [get-palette-entry Actor -index 1] {
-            mouse-move 26 9 button1 -height 23 -width 154
-            mouse-press 26 9 button1 -height 23 -width 154
-            mouse-release 26 9 button1 524288 -height 23 -width 154
+            mouse-move 31 20 button1 -height 23 -width 125
+            mouse-press 31 20 button1 -height 23 -width 125
+            mouse-release 31 20 button1 524288 -height 23 -width 125
         }
     }
-    with [get-palette | get-palette-entry Lifeline] {
-        mouse-move 9 12 button1 -height 23 -width 154
-        mouse-press 9 12 button1 -height 23 -width 154
-        mouse-release 9 12 button1 524288 -height 23 -width 154
+    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+        mouse-move 690 46 button1 -height 500 -width 920
+        mouse-press 690 46 button1 -height 500 -width 920
+        mouse-release 690 46 button1 524288 -height 500 -width 920
+    }
+    get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram" | mouse-move 921 209 -height 500 -width 920
+    with [get-palette] {
+        get-palette-entry "Synchronous Message" -index 1 | mouse-move 33 2 -height 39 -width 125
+        with [get-palette-entry Actor -index 1] {
+            mouse-move 40 21 button1 -height 23 -width 125
+            mouse-press 40 21 button1 -height 23 -width 125
+            mouse-release 40 21 button1 524288 -height 23 -width 125
+        }
     }
     with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-            mouse-move 460 49 -height 500 -width 773
-            mouse-press 460 49 button1 -height 40 -width 130
-            mouse-release 460 49 button1 524288 -height 40 -width 130
-    }
-    with [get-palette | get-palette-entry Actor -index 1] {
-        mouse-move 33 5 button1 -height 23 -width 136
-        mouse-press 33 5 button1 -height 23 -width 136
-        mouse-release 33 5 button1 524288 -height 23 -width 136
-    }
-    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        mouse-move 650 51 button1 -height 500 -width 773
-        mouse-press 650 51 button1 -height 500 -width 773
-        mouse-release 650 51 button1 524288 -height 500 -width 773
+        mouse-move 856 59 button1 -height 500 -width 920
+        mouse-press 856 59 button1 -height 500 -width 920
+        mouse-release 856 59 button1 524288 -height 500 -width 920
     }
 }
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

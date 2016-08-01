@@ -5,8 +5,8 @@ Element-Name: EmptyStateMachineDiagramInTestProject
 Element-Type: context
 Element-Version: 2.0
 Id: _Erm0gN3vEeS32_At8WTqBw
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 12/23/15 11:33 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 12:02 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -15,7 +15,7 @@ Entry-Name: .ecl.context
 // Create state machine diagram in project test
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/State Machine Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New State Machine Diagram" | get-button OK | click
 
 // Enlarge State Machine
 with [get-editor "NewModel State Machine Diagram"] {

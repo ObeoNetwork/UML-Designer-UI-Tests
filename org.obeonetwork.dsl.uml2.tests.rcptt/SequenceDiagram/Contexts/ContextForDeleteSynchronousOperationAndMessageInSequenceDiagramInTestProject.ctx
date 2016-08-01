@@ -5,62 +5,83 @@ Element-Name: ContextForDeleteSynchronousOperationAndMessageInSequenceDiagramInT
 Element-Type: context
 Element-Version: 2.0
 Id: _YBQ38OHcEeS3L8OLI5YuWw
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/13/15 6:18 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 12:00 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
+// Create a Synchronous Message From Class1 to Class2 
 with [get-editor "Test Sequence Diagram"] {
-    with [get-palette] {
-        with [get-palette-entry "CR_Synch_Message"] {
-            mouse-move 13 11 button1 -height 23 -width 182
-            mouse-press 13 11 button1 -height 23 -width 182
-            mouse-release 13 11 button1 524288 -height 23 -width 182
-        }
-        with [get-palette-entry "Synchronous Message and Operation Creation"] {
-            mouse-move 32 13 button1 -height 37 -width 182
-            mouse-press 32 13 button1 -height 37 -width 182
-            mouse-release 32 13 button1 524288 -height 37 -width 182
-        }
-    }
-    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        with [get-edit-part -name "Class1 : Class1 [1]" | get-edit-part -name Class1 | get-edit-part 
-            -className SquareEditPart] {
-            mouse-move 4 21 button1 -height 400 -width 10
-            mouse-press 4 21 button1 -height 400 -width 10
-            mouse-release 4 21 button1 524288 -height 400 -width 10
-        }
-        mouse-move 304 114 -mask CTRL -height 500 -width 753
-        with [get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part 
-            -className SquareEditPart] {
-            mouse-move 7 21 button1 CTRL -height 400 -width 10
-            mouse-press 7 21 button1 CTRL -height 400 -width 10
-            mouse-release 7 21 button1 786432 -height 400 -width 10
-        }
-    }
-    with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
-        with [get-edit-part -name "Actor1 : Actor1 [1]" | get-edit-part -name Actor1 | get-edit-part 
-            -className SquareEditPart] {
-            mouse-move 5 26 button1 -height 400 -width 10
-            mouse-press 5 26 button1 -height 400 -width 10
-            mouse-release 5 26 button1 524288 -height 400 -width 10
-        }
-        mouse-move 705 115 -height 500 -width 750
-        with [get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part 
-            -className SquareEditPart] {
-            mouse-move 5 27 button1 -height 400 -width 10
-            mouse-press 5 27 button1 -height 400 -width 10
-            mouse-release 5 27 button1 524288 -height 400 -width 10
-        }
-    }
+	with [get-palette] {
+		with [get-palette-entry "Synchronous Message" -index 1] {
+			mouse-move 84 16 button1 -height 23 -width 194
+			mouse-press 84 16 button1 -height 23 -width 194
+			mouse-release 84 16 button1 524288 -height 23 -width 194
+			mouse-hover 84 16 -height 23 -width 194
+			mouse-move 34 21 -height 23 -width 194
+		}
+	}
+	with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+		mouse-move 231 114 -height 500 -width 959
+		with [get-edit-part -name "Class1 : Class1 [1]" | get-edit-part -name Class1 | get-edit-part
+			-className SquareEditPart] {
+			mouse-move 2 23 button1 -height 410 -width 10
+			mouse-press 2 23 button1 -height 410 -width 10
+			mouse-hover 2 23 -mask 524288 -height 410 -width 10
+			mouse-release 2 23 button1 524288 -height 410 -width 10
+		}
+		mouse-move 513 110 -height 500 -width 959
+		with [get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part
+			-className SquareEditPart] {
+			mouse-hover 5 21 -height 410 -width 10
+			mouse-move 5 21 button1 -height 410 -width 10
+			mouse-press 5 21 button1 -height 410 -width 10
+		}
+	}
+	with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+		get-edit-part -name "Class2 : Class2 [1]" | get-edit-part -name Class2 | get-edit-part -name Operation_1
+			| get-edit-part -className SquareEditPart | mouse-release 10 11 button1 524288 -height 30 -width 20
+		mouse-move 936 109 -height 500 -width 956
+	}
 }
+
 with [get-editor "Test Sequence Diagram"] {
-    with [get-palette | get-palette-entry Select] {
-        mouse-move 9 7 button1 -height 19 -width 19
-        mouse-press 9 7 button1 -height 19 -width 19
-        mouse-release 9 7 button1 524288 -height 19 -width 19
-    }
+	with [get-palette] {
+		with [get-palette-entry "Synchronous Message"] {
+			mouse-move 113 38 -height 39 -width 125
+			mouse-hover 113 38 -height 39 -width 125
+		}
+		with [get-palette-entry "Synchronous Message" -index 1] {
+			mouse-move 70 16 button1 -height 23 -width 194
+			mouse-press 70 16 button1 -height 23 -width 194
+			mouse-release 70 16 button1 524288 -height 23 -width 194
+			mouse-hover 67 17 -height 23 -width 194
+		}
+	}
+	with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+		mouse-move 746 209 -height 500 -width 956
+		with [get-edit-part -name "Actor1 : Actor1 [1]" | get-edit-part -name Actor1 | get-edit-part
+			-className SquareEditPart] {
+			mouse-move 3 119 button1 -height 410 -width 10
+			mouse-press 3 119 button1 -height 410 -width 10
+			mouse-hover 3 119 -mask 524288 -height 410 -width 10
+			mouse-release 3 119 button1 524288 -height 410 -width 10
+		}
+		mouse-move 911 216 -height 500 -width 956
+		with [get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part
+			-className SquareEditPart] {
+			mouse-move 5 125 button1 -height 410 -width 10
+			mouse-press 5 125 button1 -height 410 -width 10
+		}
+	}
+	with [get-diagram -index 1 | get-edit-part -name "Test Sequence Diagram"] {
+		get-edit-part -name "Actor2 : Actor2 [1]" | get-edit-part -name Actor2 | get-edit-part -className SquareEditPart
+			| mouse-hover 5 125 -mask 524288 -height 410 -width 10
+		mouse-release 919 215 button1 524288 -height 500 -width 981
+		mouse-move 1050 201 -height 500 -width 981
+	}
+	get-palette | get-palette-entry Actor -index 1 | mouse-move 94 0 -height 23 -width 194
 }
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

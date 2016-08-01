@@ -15,8 +15,8 @@ Entry-Name: .ecl.context
 //Create a new profile diagram in test project from model explorer
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel" 
     | get-menu "New Representation/Profile Diagram" | click
-with [get-window "New Representation"] {
-    get-editbox -after [get-label "Representation name:"] | set-text "Test Profile Diagram"
+with [get-window "New Profile Diagram"] {
+    get-editbox -after [get-label "Name:"] | set-text "Test Profile Diagram"
     get-button OK | click
 }
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

@@ -68,7 +68,7 @@ with [get-editor "NewModel Composite Structure Diagram" | get-diagram -index 1 |
 }
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel/<Component> Component3" 
     | get-menu "New Representation/Component3 Composite Structure Diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Composite Structure Diagram" | get-button OK | click
 get-editor "Component3 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
     -name "Component3 Composite Structure Diagram" | mouse-move 450 0 -height 360 -width 869
 with [get-editor "Component3 Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 

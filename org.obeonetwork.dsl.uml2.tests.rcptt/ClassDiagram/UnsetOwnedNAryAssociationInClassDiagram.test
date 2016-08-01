@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _NxHgkNGcEeWfG-1HemQ45A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 2/22/16 2:23 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/1/16 3:29 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -108,6 +108,27 @@ with [get-editor "test Class Diagram"] {
         }
     }
 }
+
+with [get-editor "test Class Diagram" | get-diagram -index 1] {
+    get-edit-part -name "test Class Diagram" | mouse-move 765 197 -height 440 -width 920
+    with [get-figure] {
+        mouse-move 65 30 button1 -height 40 -width 220
+        mouse-press 65 30 button1 -height 40 -width 220
+        mouse-release 65 30 button1 524288 -height 40 -width 220
+    }
+    get-edit-part -name "test Class Diagram" | mouse-press 765 197 button3 -height 440 -width 920
+    get-menu "Show\\/Hide" | click
+}
+
+with [get-window "Diagram elements visibility"] {
+    with [get-tree] {
+        select [get-item "<Association> A_class1s_class2s_class3s" -index 1] 
+            | get-item "<Association> A_class1s_class2s_class3s/A_class1s_class2s_class3s label" | check
+        select "<Association> A_class1s_class2s_class3s/A_class1s_class2s_class3s label"
+    }
+    get-button OK | click
+}
+
 with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -name "test Class Diagram"] {
     with [get-edit-part -name "A_class1s_class2s_class3s"] {
     	get-edit-part -className WorkspaceImageEditPart | get-figure 0

@@ -1,0 +1,41 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw
+Element-Name: CreateNewClassDiagramFromDashboard
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _NsYwwMyREeSmqoI7c5i_uw
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/1/16 9:59 AM
+Testcase-Type: ecl
+Verifications: _-y-6QMyVEeSmqoI7c5i_uw
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Create a new Class Diagram from Project contextual menu:
+Test: 
+- double click on project to initialise it
+- click on Class diagram in dashboard
+- save
+
+Result:
+Only the one class diagram is created.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+// Load models, this should open the dashbaord automatically
+get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel"
+wait 2000
+// Get the activity explorer
+with [get-editor "<Model> NewModel - Activity Explorer"] {
+	// Create a new class diagram
+    get-link "" | click
+    get-section Design | get-link "Create new Class diagram" | click
+}
+get-window "New Class Diagram" | get-button OK | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

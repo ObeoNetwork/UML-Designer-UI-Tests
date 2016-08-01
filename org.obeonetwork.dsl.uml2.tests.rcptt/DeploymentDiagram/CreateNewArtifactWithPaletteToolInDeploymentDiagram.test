@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _j-0sANedEeSVyY6xGIhNLA
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 6/9/15 11:51 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:00 AM
 Testcase-Type: ecl
 Verifications: _xRPXwNeyEeSVyY6xGIhNLA
 
@@ -57,4 +57,5 @@ get-editor "NewModel Deployment Diagram" | get-diagram -index 1 | get-edit-part
 get-editor "NewModel Deployment Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel Deployment Diagram" | get-property childrenCount | equals 1 | verify-true
 
+get-button "Save (M1+S)" | click
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

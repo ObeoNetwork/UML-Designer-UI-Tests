@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _mHUIoN-XEeSEJ-mMQXHd1A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 5/29/15 2:51 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/3/16 11:29 AM
 Testcase-Type: ecl
 Verifications: _dAsF4N-YEeSEJ-mMQXHd1A
 
@@ -32,11 +32,6 @@ Entry-Name: .content
 with [get-editor "Test Sequence Diagram"] {
     with [get-palette] {
     	// Select tool
-        with [get-palette-entry Lifeline] {
-            mouse-move 10 10 button1 -height 23 -width 125
-            mouse-press 10 10 button1 -height 23 -width 125
-            mouse-release 10 10 button1 524288 -height 23 -width 125
-        }
        with [get-palette-entry Actor -index 1] {
             mouse-move 29 7 button1 -height 23 -width 125
             mouse-press 29 7 button1 -height 23 -width 125

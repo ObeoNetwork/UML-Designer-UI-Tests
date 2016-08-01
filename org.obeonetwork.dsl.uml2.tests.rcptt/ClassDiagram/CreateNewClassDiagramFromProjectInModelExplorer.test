@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _O98moMyOEeSmqoI7c5i_uw
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 4/15/15 10:46 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 8/1/16 10:31 AM
 Testcase-Type: ecl
 Verifications: _7aex0MvvEeSu594eI49JZA
 
@@ -45,8 +45,8 @@ with [get-window "Create Representation Wizard"] {
 with [get-window "Create Representation"] {
     get-tree | select "platform:\\/resource\\/test\\/model.uml/<Model> NewModel"
     get-button Finish | click
-    with [get-window "New Representation"] {
-        with [get-editbox -after [get-label "Representation name:"]] {
+    with [get-window "New Class Diagram"] {
+        with [get-editbox -after [get-label "Name:"]] {
             set-text "testClass Diagram"
             set-text testClassDiagram
         }
@@ -55,7 +55,7 @@ with [get-window "Create Representation"] {
 }
 
 // Follow wizard to create second Class diagram and abort
-get-view "Model Explorer" | get-tree | select test | get-menu "Create Representation" | click
+get-view "Model Explorer" | get-tree | select "*test" | get-menu "Create Representation" | click
 with [get-window "Create Representation Wizard"] {
     get-tree | select "Design/Class Diagram"
     get-button "Next >" | click
@@ -63,6 +63,6 @@ with [get-window "Create Representation Wizard"] {
 with [get-window "Create Representation"] {
     get-tree | select "platform:\\/resource\\/test\\/model.uml/<Model> NewModel"
     get-button Finish | click
-    get-window "New Representation" | get-button Cancel | click
+    get-window "New Class Diagram" | get-button Cancel | click
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -16,5 +16,5 @@ with [get-view "Model Explorer" | get-tree] {
     select "test/model.uml" | double-click
     select "test/model.uml/<Model> NewModel" | get-menu "New Representation/NewModel Component Diagram" | click
 }
-get-window "New Representation" | get-button OK | click
+get-window "New Component Diagram" | get-button OK | click
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
