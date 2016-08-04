@@ -46,7 +46,7 @@ before_script:
  - wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/releng/$RUNNER
  - echo $TRAVIS_TAG
  - if [[ "$TRAVIS_TAG" == "" ]]; then AUT=../obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;
-   else AUT=../obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_TAG}/UMLDesigner-linux.gtk.x86_64.zip;fi
+   else AUT=../obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_TAG}/bundles/UMLDesigner-linux.gtk.x86_64.zip;fi
  - echo $AUT
  - if [[ "$TRAVIS_TAG" == "" ]]; then wget -mN http://obeo-umldesigner-nightly.s3.amazonaws.com/${TRAVIS_BRANCH}/bundles/UMLDesigner-linux.gtk.x86_64.zip;
    else wget -mN http://obeo-umldesigner-releases.s3.amazonaws.com/${TRAVIS_TAG}/UMLDesigner-linux.gtk.x86_64.zip;fi
