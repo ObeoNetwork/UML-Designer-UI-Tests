@@ -5,8 +5,8 @@ Element-Name: FillCompositStructureDiagram
 Element-Type: context
 Element-Version: 2.0
 Id: _dvrx0DFFEeWkXJykQ54L0A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 7/23/15 4:41 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 11/7/16 2:58 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -26,7 +26,17 @@ with [get-editor "NewModel Composite Structure Diagram"] {
         mouse-release 172 221 button1 524288 -height 524 -width 588
     }
 }
-get-window "Add existing elements" | get-button OK | click
+with [get-window "Add existing elements"] {
+    with [get-tree] {
+        get-item "<Model> NewModel/<Component> Component3" | check
+        select "<Model> NewModel/<Component> Component3" | get-item "<Model> NewModel/<Component> Component2" | check
+        select "<Model> NewModel/<Component> Component2" | get-item "<Model> NewModel/<Component> Component1" | check
+        select "<Model> NewModel/<Component> Component1"| get-item "<Model> NewModel/<Component> Component3/<Component> Component_31" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_31"| get-item "<Model> NewModel/<Component> Component3/<Component> Component_32" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_32"
+    }
+    get-button OK | click
+}
 with [get-editor "NewModel Composite Structure Diagram"] {
     with [get-diagram -index 1 | get-edit-part -name "NewModel Composite Structure Diagram"] {
         with [get-edit-part -name Component3 | get-edit-part 

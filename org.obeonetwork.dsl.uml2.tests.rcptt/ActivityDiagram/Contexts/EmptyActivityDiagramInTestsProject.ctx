@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _w18PUNz2EeS8j822Nc50oQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 8/2/16 12:01 PM
+Save-Time: 11/4/16 5:09 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -16,7 +16,7 @@ Entry-Name: .ecl.context
 get-view "Model Explorer" | get-tree | select "test/model.uml/<Model> NewModel"
 wait 2000
 // Get the activity explorer
-with [get-editor "<Model> NewModel - Activity Explorer"] {
+with [get-editor "<Model> NewModel"] {
 	// Create a new diagram
     get-link "" | click
     get-section Design | get-link "Create new Activity diagram" | click

@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _enz-sOjuEeSbrNfps6-q5Q
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 8/1/16 4:14 PM
+Save-Time: 11/4/16 5:41 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -30,7 +30,7 @@ with [get-editor "test Class Diagram"] {
     }
 }
 with [get-window "Add existing elements"] {
-    get-tree | select "<Model> NewModel/<Component> Component1"
+    get-tree | select "<Model> NewModel/<Component> Component1" | get-item "<Model> NewModel/<Component> Component1"|check
     get-button OK | click
 }
 

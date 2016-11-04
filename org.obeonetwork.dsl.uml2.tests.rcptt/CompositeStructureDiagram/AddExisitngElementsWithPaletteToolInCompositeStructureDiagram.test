@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _l0lCEBjrEeWZ6p0pDDYb5A
-Runtime-Version: 1.5.5.201503020312
-Save-Time: 6/23/15 8:54 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 11/7/16 3:18 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -40,7 +40,17 @@ with [get-editor "NewModel Composite Structure Diagram"] {
         mouse-release 345 174 button1 524288 -height 360 -width 869
     }
 }
-get-window "Add existing elements" | get-button OK | click
+with [get-window "Add existing elements"] {
+    with [get-tree] {
+        get-item "<Model> NewModel/<Component> Component3" | check
+        select "<Model> NewModel/<Component> Component3" | get-item "<Model> NewModel/<Component> Component2" | check
+        select "<Model> NewModel/<Component> Component2" | get-item "<Model> NewModel/<Component> Component1" | check
+        select "<Model> NewModel/<Component> Component1"| get-item "<Model> NewModel/<Component> Component3/<Component> Component_31" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_31"| get-item "<Model> NewModel/<Component> Component3/<Component> Component_32" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_32"
+    }
+    get-button OK | click
+}
 with [get-editor "NewModel Composite Structure Diagram" | get-diagram -index 1 | get-edit-part 
     -name "NewModel Composite Structure Diagram"] {
     mouse-move 385 335 -height 364 -width 873
@@ -100,8 +110,9 @@ with [get-editor "Component3 Composite Structure Diagram"] {
 }
 with [get-window "Add existing elements"] {
     with [get-tree] {
-        select "<Model> NewModel"
-        get-item "<Model> NewModel" | check
+		get-item "<Model> NewModel/<Component> Component3/<Component> Component_31" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_31"| get-item "<Model> NewModel/<Component> Component3/<Component> Component_32" | check
+        select "<Model> NewModel/<Component> Component3/<Component> Component_32"
     }
     get-button OK | click
 }
