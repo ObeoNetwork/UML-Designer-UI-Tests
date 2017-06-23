@@ -1,21 +1,16 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
 Context-Type: org.eclipse.rcptt.ctx.ecl
-Element-Name: LoadTravelAgencyExample
+Element-Name: aaa
 Element-Type: context
 Element-Version: 2.0
-Id: _PbyVcIBsEeS4X6G9cD21hw
+Id: _IX0mwNKcEeahbOXMgNOTTw
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 1/4/17 2:01 PM
+Save-Time: 1/4/17 5:37 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-get-menu "File/New/Example..." | click
-with [get-window "New Example"] {
-    get-tree | select "UML Designer/Travel Agency UML"
-    get-button "Next >" | click
-    get-button Finish | click
-}
+cdo-server-start
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--

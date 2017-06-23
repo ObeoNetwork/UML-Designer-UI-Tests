@@ -1,6 +1,6 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_p-v3gMyvEeSmqoI7c5i_uw,_joJv4AN4EeWhi5BJGob5aQ,_9W5JgAN5EeWhi5BJGob5aQ
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_P_2ecMgwEeaL4eSg_z2_0g,_p-v3gMyvEeSmqoI7c5i_uw,_joJv4AN4EeWhi5BJGob5aQ,_9W5JgAN5EeWhi5BJGob5aQ
 Element-Name: RemoveAchetypeInClassDiagram
 Element-Type: testcase
 Element-Version: 3.0
@@ -126,5 +126,6 @@ with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -na
     }
 }
 
+get-button "Save (M1+S)" | click // ADDED AUTOMATICALLY - Save shared modeling project
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

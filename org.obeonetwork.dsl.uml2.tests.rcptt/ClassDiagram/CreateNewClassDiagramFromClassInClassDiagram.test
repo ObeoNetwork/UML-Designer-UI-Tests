@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_p-v3gMyvEeSmqoI7c5i_uw,_-5J9IOkEEeSQDInBvZLf3Q
+Contexts: _xUmjgA-GEeWqyPO4VW22gA,_MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_4eO8kBAeEeWa5c8q1ijOWg,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_P_2ecMgwEeaL4eSg_z2_0g,_p-v3gMyvEeSmqoI7c5i_uw,_-5J9IOkEEeSQDInBvZLf3Q
 Element-Name: CreateNewClassDiagramFromClassInClassDiagram
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _fbP64Oj7EeSQDInBvZLf3Q
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 7/29/16 12:33 PM
+Save-Time: 1/4/17 2:42 PM
 Testcase-Type: ecl
 Verifications: _DJ1IIOkFEeSQDInBvZLf3Q
 
@@ -40,5 +40,12 @@ with [get-editor "test Class Diagram" | get-diagram -index 1] {
 get-window "New Class Diagram" | get-button OK | click
 
 // Check new diagram is opened
-get-editor "Class1 Class Diagram" | get-diagram -index 1 | get-edit-part -name "Class1 Class Diagram" 
+try -command {
+get-editor "Class1 Class Diagram" | get-diagram -index 1 | get-edit-part -name "Class1 Class Diagram"
+}
+-finally {
+get-button "Save (M1+S)" | click // ADDED AUTOMATICALLY - Save shared modeling project
+}
+
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

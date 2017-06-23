@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _p-v3gMyvEeSmqoI7c5i_uw
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 7/29/16 11:58 AM
+Save-Time: 12/23/16 6:32 PM
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -27,7 +27,7 @@ with [get-window "Create Representation Wizard"] {
     get-button "Next >" | click
 }
 with [get-window "Create Representation"] {
-    get-tree | select "platform:\\/resource\\/test\\/model.uml/<Model> NewModel"
+    get-tree | select "model.uml/<Model> NewModel"
     get-button Finish | click
     with [get-window "New Class Diagram"] {
         get-editbox -after [get-label "Name:"] | set-text "test Class Diagram"

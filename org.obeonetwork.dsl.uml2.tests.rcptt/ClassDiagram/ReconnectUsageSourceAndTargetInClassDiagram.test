@@ -119,5 +119,6 @@ with [get-editor "Test Class Diagram Edges" | get-diagram -index 1 | get-edit-pa
     get-property "element.targetNode.name" | equals Class21 | verify-true
 }
 
+get-button "Save (M1+S)" | click // ADDED AUTOMATICALLY - Save shared modeling project
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

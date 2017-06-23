@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_p-v3gMyvEeSmqoI7c5i_uw,_K7PTQA6GEeW91PUwHXJ5rQ
+Contexts: _MWdYgIBGEeS4X6G9cD21hw,_j5GvUAUgEeWu0eW6YYFvkg,_he-_gIBIEeS4X6G9cD21hw,_bKL_sH-PEeS4X6G9cD21hw,_X-rQgH-QEeS4X6G9cD21hw,_P_2ecMgwEeaL4eSg_z2_0g,_p-v3gMyvEeSmqoI7c5i_uw,_K7PTQA6GEeW91PUwHXJ5rQ
 Element-Name: ReconnectRelationshipsBindingInClassDiagram
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _1d21kA6OEeW91PUwHXJ5rQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 11/4/16 5:06 PM
+Save-Time: 1/4/17 1:42 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -210,4 +210,6 @@ with [get-editor "test Class Diagram" | get-diagram -index 1 | get-edit-part -na
     get-property "element.sourceNode.name" | equals "Class1 <T>" | verify-true
     get-property "element.targetNode.name" | equals "DataType1 <T>" | verify-true
 }
+get-button "Save (M1+S)" | click // ADDED AUTOMATICALLY - Save shared modeling project
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,41 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: InitSharedModelingProject
+Element-Type: context
+Element-Version: 2.0
+Id: _P_2ecMgwEeaL4eSg_z2_0g
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 1/4/17 4:05 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+cdo-server-start
+get-view "Model Explorer" | get-tree | select "test-local" | get-menu "Export..." | click
+with [get-window Export] {
+    get-tree | select "Sirius/Shared Modeling Project from Local"
+    get-button "Next >" | click
+}
+with [get-window "Export Project to Repository"] {
+    get-button "Override existing resources" | check
+    get-button "Next >" | click
+    get-button "Test connection" | click
+    get-button Finish | click
+}
+with [get-window "Connect to the Exported Project"] {
+    get-editbox -after [get-label "Local Project Name:"] | set-text test
+    get-button Finish | click
+    with [get-window "Progress Information" | get-window "Viewpoints Selection"] {
+        with [get-table] {
+            get-item Capture | check
+            get-item Design | check
+            get-item Extend | check
+            get-item Reused | check
+            get-item Review | check
+        }
+        get-button OK | click
+    }
+}
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
